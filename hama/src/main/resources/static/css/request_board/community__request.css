@@ -1,0 +1,128 @@
+
+.postlist_ask_hama {
+    display: grid;
+    place-items: center;
+  }
+  
+  .community__postlist_ask_hama {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    max-width: 1024px;
+  }
+  
+  .post {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 150px;
+  }
+  
+  .post img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .post h3 {
+    margin: 0;
+  }
+  
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    max-width: 700px; /* 최대 너비 설정 */
+    min-width: 700px;
+  }
+  .title__postlist_ask_hama {
+    grid-area: title__postlist_ask_hama;
+    padding-left: 80px; /* 좌우 여백 추가 */
+    padding-top: 30px;
+    width: 1024px;
+    height: 100px;
+  }
+  
+  .title__postlist_ask_hama h2{
+    padding-bottom: 20px;
+  }
+.hope_text{
+    font-weight: bold;
+}
+  /* 버튼 컨테이너 스타일 */
+  .post .buttons {
+  position: absolute;
+  right:15px;
+  bottom:15px;
+  display: flex;
+  flex-direction: column; /* 위아래 정렬 */
+  align-items: flex-end; /* 우측 정렬 */
+  gap: 5px; /* 버튼 사이의 간격 조절 */
+  margin-top: 10px; /* 버튼 위 여백 추가 */
+  
+  }
+  
+  .post .buttons .colorbutton,
+  .post .buttons .borderbutton{
+ 
+  height: 50px;
+  width: 120px;
+  }
+  
+  .top__title__postlist_ask_hama
+  {
+  display: grid;
+  grid-template-areas: ". title__postlist_ask_hama .";
+  }
+  
+  /*선택 카테고리*/
+
+  .select{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .select__service{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .select__locate{
+   display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .select__search__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;  
+  }
+  
+  /* 검색창 높이 */
+  .search__input{
+    padding: 5px;
+    height: 15px;
+  }
+  
+  /* 검색 버튼 */
+  .search__button {
+    padding: 5px 10px;
+    background-color: rgb(0,176,250);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+  }
+  

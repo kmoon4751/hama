@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, beforHeader afterHeader-->
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/community/community.css}">
+</th:block>
+
+<div layout:fragment="content">
+    <body>
+    <div class="container_commu">
+        <div class="containerWrap_commu">
+            <!-- 사이드 메뉴 -->
+            <div class="commu_side">
+
+                <!--                <a href="test.html">-->
+<!--            <a href="#"><div class="side side_write"><a th:href="@{/community/question/post}">글작성</a></div></a>-->
+                <!--                </a>-->
+                <!--        <a href="community.html">-->
+                <!--                <div class="side side_whole"><i class="fa-solid fa-location-arrow"></i><a href="/community">전체</a></div>-->
+                <!--        </a>-->
+                <!--        <a href="community_question.html">-->
+                <div class="side side_question"> <a th:href="@{/community/question}">궁금해요</a></div>
+                <!--        </a>-->
+                <!--        <a href="community_howMuch.html">-->
+                <div class="side side_howMuch"><a th:href="@{/community/howmuch}">얼마예요</a></div>
+                <!--        </a>-->
+                <!--        <a href="community_gethering.html">-->
+                <div class="side side_gethering"><a th:href="@{/community/gethering}">모여봐요</a></div>
+                <!--        </a>-->
+                <div class="side side_searching_wrap">
+                    <input class="side side_searching" id="search1" type="text" placeholder="검색어 입력..." name="search2"></input>
+                    <button class="side side_searching" id="search2">검색</button>
+                </div>
+                <script>
+                    // 검색 버튼 클릭 이벤트 처리
+                    document.getElementById('search2').addEventListener('click', function () {
+                        // 검색어 입력란의 값을 가져옴
+                        var searchText = document.getElementById('search1').value;
+
+                        // 검색어를 사용하여 원하는 동작을 수행 (예: 검색 결과 표시)
+                        alert('검색어: ' + searchText); // 여기에 실제 검색 로직을 추가하세요.
+                    });
+                </script>
+            </div>
+            <div class="main_commu">
+                <!-- 커뮤니티 페이지 제목 -->
+                <div class="commu_title">
+                    <div id="title1">
+                        <h2>궁금해요</h2>
+                        <div id="title2"><br>생활 속 궁금했던 모든 것을 물어보고 답해보세요
+                        </div>
+                    </div>
+                </div>
+                <!-- 이용자 게시글 목록 -->
+                <div class="commu_content" id="content-container"></div>
+                <div>디테일</div>
+            </div>
+        </div>
+    </div>
+    </body>
+</div>
+</html>

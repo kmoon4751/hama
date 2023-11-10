@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}" xmlns="http://www.w3.org/1999/html">
+<!--only_footer, header-->
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/mypage/cus_update.css}">
+    <link rel="stylesheet" th:href="@{/css/mypage/btn.css}">
+</th:block>
+<th:block layout:fragment="script">
+  <script src="https://kit.fontawesome.com/ba16334cfd.js" crossorigin="anonymous"></script>
+</th:block>
+
+<div layout:fragment="content">
+  <body>
+  <div class="upcontainer">
+    <div class="upheader">
+      <div class="main_title"><h1>회원정보수정........</h1></div>
+    </div>
+    <div class="upmain">
+      <div class="content_top">
+        <div class="top_title">내 프로필</div>
+        <div class="first_top">
+          <div class="pic_nickname">
+            <div class="pic">
+              <img th:if="${session.sessionForm.pic} != null" th:src="@{|/view/${session.sessionForm.pic}|}" >
+              <i class="fa-solid fa-user" style="font-size: 50px;margin-bottom:10px;"  th:unless="${session.sessionForm.pic}" ></i>
+            </div>
+            <div class="nick_id">
+              <div class="nickname" th:text="${session.sessionForm.nickname}">별명</div>
+              <div class="id_value" th:text="${session.sessionForm.email}">hama2team@hwaiting.com</div>
+            </div>
+          </div>
+        </div>
+        <div class="phone">
+          <div class="phone_img">
+            <img src="/iamge/아이콘/phone.png" alt=""></div>
+          <div class="phone-num" th:text="${session.sessionForm.tel}">010-9999-9999</div>
+        </div>
+        <div class="phone">
+          <div class="phone_img">
+            <img src="/iamge/아이콘/letter.png" alt=""></div>
+          <div class="phone-num" th:text="${session.sessionForm.email}">hama2tema@legend.com</div>
+        </div>
+      </div>
+      <div class="content_bottom">
+        <div class="bottom_title">수정</div>
+        <div class="nickname_form_title pic">사진 : </div>
+        <div class="bottom_first">
+          <div class="update_pic">
+<!--      사진 폼 시작                                              -->
+            <form action="/update/pic/add" method="post" th:object="${fileForm}" th:if="${session.sessionForm.pic} == null" enctype="multipart/form-data">
+              <div class="filebox">
+
+                <label for="file">파일찾기</label>
+                <input type="file" id="file" name="" th:field="*{imageFiles}">
+                <input type="hidden" name="member_id" th:value="${session.sessionForm.member_id}">
+                <input type="submit" class="button colorbutton update" value="사진 등록">
+              </div>
+            </form>
+
+<!--            <form action="/update/pic" method="post" th:object="${fileForm}" th:if="${session.sessionForm.pic}">-->
+<!--              <div class="filebox">-->
+<!--                <input class="upload-name" value="첨부파일" placeholder="첨부파일" name="esti_file">-->
+<!--                <label for="file2">파일찾기</label>-->
+<!--                <input type="file" id="file2" name="pic">-->
+<!--                <input type="hidden" th:value="${session.sessionForm.member_id}">-->
+<!--                <input type="submit" class="button colorbutton update" value="사진 변경">-->
+<!--              </div>-->
+<!--            </form>-->
+
+            <form action="/update/pic/delete" method="post" th:object="${fileForm}" id="frm2" th:if="${session.sessionForm.pic} != null">
+              <input type="hidden" name="member_id" th:value="${session.sessionForm.member_id}">
+              <input type="submit" class="button colorbutton delete" value="사진 삭제">
+            </form>
+
+          </div>
+          <div class="value update_nickname">
+            <div class="nickname_form_title">별명 :</div>
+            <form class="input nick_form" method="post" th:object="${updateCKForm}">
+              <div class="nickname_form">
+                <input type="text" class="inner" name="nickname"></div>
+              <input type="submit" class="button borderbutton bottom nick" value="별명 변경">
+            </form>
+          </div>
+          <div class="value update_nickname">
+            <div class="nickname_form_title">전화번호 :</div>
+            <form class="input nick_form" method="post" th:object="${updateForm}">
+              <div class="nickname_form">
+                <input type="text" class="inner" name="tel"></div>
+              <input type="submit" class="button borderbutton bottom phone" value="전화번호 변경">
+            </form>
+          </div>
+          <form action="" method="post" th:object="${updateForm}">
+          <div class="value update_nickname" >
+            <div class="nickname_form_title">비밀번호 :</div>
+            <div class="input nick_form">
+              <div class="nickname_form">
+                <input type="password" class="inner" name="passwd"></div>
+            </div>
+          </div>
+          <div class="value update_nickname">
+            <div class="nickname_form_title">비밀번호 확인 :</div>
+            <div class="input nick_form">
+              <div class="nickname_form">
+                <input type="password" class="inner"></div>
+            </div>
+          </div>
+          <div class="pw_btn"><input type="submit" class="button borderbutton bottom password" value="비밀번호 수정"></div>
+          </form>
+        </div>
+      </div>
+      <div class="content_finish">
+        <!-- <div class="update_finish"><button class="button borderbutton update">수정완료</button></div> -->
+        <div class="cus_delete">회원탈퇴</div>
+      </div>
+    </div>
+  </div>
+  </body>
+</div>
+</html>

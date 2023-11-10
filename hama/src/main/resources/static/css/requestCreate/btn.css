@@ -1,0 +1,43 @@
+.button {
+    display: inline-block;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    width: 80%;
+    height: 100px;
+  }
+  .colorbutton {
+    background-color: rgb(0, 176, 250);
+    color: white;
+  }
+  .borderbutton{
+    border-radius: 16px;
+    border-color: rgb(0, 176, 450);
+    background-color: white;
+    color: rgb(0, 176, 250);
+    border: 1px solid;
+  }
+  .button.borderbutton:hover{
+    background-color: rgb(0, 176, 250);
+    color: white;
+  }
+  .button.colorbutton:hover{
+    border: 1px solid;
+    background-color: white;
+    color: rgb(0, 176, 250);
+  }
+
+  .button.borderbutton.nick,
+  .button.borderbutton.phone,
+  .button.borderbutton.email,
+  .button.borderbutton.password{
+    width: 80px;
+    margin-left: 10px;
+    height: 30px;
+  }

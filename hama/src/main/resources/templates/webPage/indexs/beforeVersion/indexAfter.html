@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/afterHeader}">
+<th:block layout:fragment="css">
+<link rel="stylesheet" th:href="@{/css/banner.css}">
+<link rel="stylesheet" th:href="@{/css/main1.css}">
+<link rel="stylesheet" th:href="@{/css/main2.css}">
+<link rel="stylesheet" th:href="@{/css/main1_size.css}">
+<link rel="stylesheet" th:href="@{/css/main3.css}">
+</th:block>
+
+<div layout:fragment="content">
+  <body>
+  <div class="container__banner">
+    <div class="banner">
+      <div class="slide slide_wrap">
+        <div class="slide_item item1"><img src="/img/견적요청_배너.png" alt=""></div>
+        <div class="slide_item item2"><img src="/img/편의점_배너.png" alt=""></div>
+        <div class="slide_item item3"><img src="/img/개방화장실_배너.png" alt=""></div>
+        <div class="slide_item item4"><img src="/img/가이드_배너.png" alt=""></div>
+        <div class="slide_prev_button slide_button">◀</div>
+        <div class="slide_next_button slide_button">▶</div>
+        <ul class="slide_pagination"></ul>
+      </div>
+    </div>
+  </div>
+  <script src="/js/banner.js"></script>
+
+  <!-- 메인1(서비스추천) 시작 -->
+  <div class="container__main1">
+    <div class="main1">
+      <div class="top__main1">
+        <div class="service__main1"><h2>서비스 추천</h2></div>
+        <div class="full__main1"><a href="#">전체보기</a></div>
+      </div>
+      <div class="content__main1">
+        <div class="sec__main1">
+          <div class="box__main1 box1" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/aaa.jpg">
+            <div class="menu__main1 menu1"><a href="#"><h4>포장 이사</h4></a></div>
+          </div>
+          <div class="box__main1 box2" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/bbb.jpg">
+            <div class="menu__main1 menu2"><a href="#"><h4>개인 PT</h4></a></div>
+          </div>
+          <div class="box__main1 box3" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/ccc.jpg">
+            <div class="menu__main1 menu3"><a href="#"><h4>수학 과외</h4></a></div>
+          </div>
+          <div class="box__main1 box4" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/ddd.jpg">
+            <div class="menu__main1 menu4"><a href="#"><h4>웹 디자인</h4></a></div>
+          </div>
+          <div class="box__main1 box5" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/eee.jpg">
+            <div class="menu__main1 menu5"><a href="#"><h4>배달 심부름</h4></a></div>
+          </div>
+          <div class="box__main1 box6" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/fff.jpg">
+            <div class="menu__main1 menu6"><a href="#"><h4>벌레 잡기</h4></a></div>
+          </div>
+          <div class="box__main1 box7" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/ggg.jpg">
+            <div class="menu__main1 menu7"><a href="#"><h4>반려견 산책</h4></a></div>
+          </div>
+          <div class="box__main1 box8" onclick="location.href='#'" style="cursor: pointer;">
+            <img src="/img/hhh.jpg">
+            <div class="menu__main1 menu8"><a href="#"><h4>법률 도움</h4></a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 메인2(하마찾기) 시작 -->
+  <div class="main2">
+    <div class="container__main2">
+      <div class="main2">
+        <div class="section__main2">
+          <!-- 제목 : 하마찾기 -->
+          <div class="main2_head">
+            <div class="title__main2"><h2>하마찾기</h2></div>
+            <div class="full__main2"><a href="#">전체보기</a></div>
+          </div>
+          <div class="information__main2">
+            <!-- 박스 1 -->
+            <div class="item__main2">
+              <div class="box1__main2">
+                <!-- 이미지 -->
+                <div class="pic__main2"><img src="/img/aaa.jpg" alt=""></div>
+                <!-- 직업, 별명 -->
+                <div class="box1_head">
+                  <div class="job__main2">우주하마 전문가</div>
+                  <div class="nickname__main2">리얼하마 하마님</div>
+                </div>
+              </div>
+              <!-- 소개글 -->
+              <div class="box2__main2"><p>[작품해설] 1948년 정음사에서 간행된 유고시집 『하늘과 바람과 별과 시』의 마지막에 수록된 윤동주의 시 작품. </p></div>
+              <!-- 매칭,경력 -->
+              <div class="box3__main2">매칭10회 · 경력15년
+              </div>
+            </div>
+            <div class="item__main2">
+              <div class="box1__main2">
+                <div class="pic__main2"><img src="/img/bbb.jpg" alt=""></div>
+                <div class="box1_head">
+                  <div class="job__main2">프로게이머</div>
+                  <div class="nickname__main2">라일라이 하마님</div>
+                </div>
+              </div>
+              <div class="box2__main2"><p>좋았쒀! 영촤! </p></div>
+              <div class="box3__main2">매칭2회
+                · 경력15년
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 메인3(커뮤니티) 시작 -->
+  <div class="main3">
+
+    <!--커뮤니티 전체 박스-->
+    <div class="community__main3">
+
+      <!--커뮤니티 메뉴박스(전체보기/궁금얼마모여)-->
+      <div class="community__menu">
+
+        <div class="community__more">
+          <div class="title__main3"><h2>커뮤니티</h2></div>
+          <div class="full__main3"><a href="#">전체보기</a></div>
+        </div>
+
+        <div class="community__cate">
+          <span class="community__cate__desc"><a class="community__cate__link" href="#">궁금해요</a></span>
+          <span class="community__cate__desc"><a class="community__cate__link" href="#">얼마예요</a></span>
+          <span class="community__cate__desc"><a class="community__cate__link" href="#">모여봐요</a></span>
+        </div>
+
+      </div>
+
+      <!--게시글 박스-->
+      <div class="community__post">
+
+        <div class="item__main3">
+          <div class="item__cate">카테고리</div>
+
+          <!--사진+제목+내용 박스-->
+          <div class="item__post">
+            <img class="pic" src="https://picsum.photos/50" alt="" />
+
+            <ul class="desc">
+              <li class="item__post__desc__title">제목</li>
+              <li>내용</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="item__main3">
+          <div class="item__cate">카테고리</div>
+
+          <!--사진+제목+내용 박스-->
+          <div class="item__post">
+            <img class="pic" src="https://picsum.photos/50" alt="" />
+
+            <ul class="desc">
+              <li class="item__post__desc__title">제목</li>
+              <li>내용</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="item__main3">
+          <div class="item__cate">카테고리</div>
+
+          <!--사진+제목+내용 박스-->
+          <div class="item__post">
+            <img class="pic" src="https://picsum.photos/50" alt="" />
+            <ul class="desc">
+              <li class="item__post__desc__title">제목</li>
+              <li>내용</li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="item__main3">
+          <div class="item__cate">카테고리</div>
+
+          <!--사진+제목+내용 박스-->
+          <div class="item__post">
+            <img class="pic" src="https://picsum.photos/50" alt="" />
+            <ul class="desc">
+              <li class="item__post__desc__title">제목</li>
+              <li>내용</li>
+            </ul>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
+  </body>
+</div>
+
+</html>

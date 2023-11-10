@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<th:block layout:fragment="css">
+  <link rel="stylesheet" th:href="@{/css/index/login.css}">
+</th:block>
+
+<div layout:fragment="content">
+<body>
+<div class="login__form">
+  <div class="form-wrap"><!--아이템이 2개 form/menu-->
+
+    <!--
+    form.form>input.form__id+input.form__pw+input[type='submit'].btn
+    form : 블럭레벨
+    input : 인라인 -->
+    <form action="" class="form" method="post" th:object="${loginForm}">
+
+      <!--로그인창 함께하마 타이틀-->
+      <div class="form__row">
+        <img src="/img/logo.png" alt="">
+      </div>
+
+      <!--아이디 입력 박스-->
+      <div class="form__row">
+        <i class="fa-solid fa-user "></i> <!--아이디 아이콘-->
+
+        <!--아이디 입력-->
+        <input  type="email"
+            class="form__id from__item"
+            placeholder="이메일 아이디"
+            name = 'email'/>
+      </div>
+<!--      <div class="field-error" th:error="*{email}"></div>-->
+
+
+      <!--비밀번호 입력 박스-->
+      <div class="form__row">
+        <i class="fa-solid fa-key "></i> <!--아이콘-->
+
+        <!--비밀번호 입력-->
+        <input type="password"
+            class="form__pw from__item"
+            placeholder="비밀번호"
+            name = 'passwd'/>
+
+      </div>
+      <div class="field-error" th:if="${#fields.hasErrors('global')}" th:errors="*{global}">
+      </div>
+
+      <!--로그인 버튼-->
+      <div class="form__row">
+
+        <input
+            type="submit"
+            value="로그인"
+            class="form__btn"/>
+      </div>
+
+    <ul class="menu_find">
+    <li class="item"><a href="#">아이디/비밀번호 찾기</a></li>
+    </ul>
+    </form>
+
+    <!-- ul>li*3>a
+    순서가 없는 ul의 리스트3개의 a태그(링크) -->
+
+  </div>
+
+</div>
+</body>
+</div>>
+</html>
+        

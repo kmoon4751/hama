@@ -1,0 +1,19 @@
+#tab-1:checked ~ .main2 .item_box_bottom:nth-child(1),
+#tab-2:checked ~ .main2 .item_box_bottom:nth-child(2),
+#tab-3:checked ~ .main2 .item_box_bottom:nth-child(3),
+#tab-4:checked ~ .main2 .item_box_bottom:nth-child(4),
+#tab-5:checked ~ .main2 .item_box_bottom:nth-child(5),
+#tab-6:checked ~ .main2 .item_box_bottom:nth-child(6)  {
+    display: grid;
+}
+
+  #tab-1:checked ~ .item_box_top .item:nth-child(1) .pic,
+  #tab-2:checked ~ .item_box_top .item:nth-child(2) .pic,
+  #tab-3:checked ~ .item_box_top .item:nth-child(3) .pic,
+  #tab-4:checked ~ .item_box_top .item:nth-child(4) .pic,
+  #tab-5:checked ~ .item_box_top .item:nth-child(5) .pic,
+  #tab-6:checked ~ .item_box_top .item:nth-child(6) .pic {
+    border-radius: 16px;
+    scale: 1.2;
+  }
+  

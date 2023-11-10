@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+<link
+    th:href="@{https://fonts.googleapis.com/css2?family=Gowun+Batang&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@400;600&family=Roboto&display=swap}"
+    rel="stylesheet"
+>
+<link rel="stylesheet" th:href="@{/css/Public/font.css}">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/postboxs/estimate/receiveEsti.css}">
+</th:block>
+<th:block layout:fragment="script">
+  <script src="https://kit.fontawesome.com/ba16334cfd.js" crossorigin="anonymous"></script>
+</th:block>
+
+<div layout:fragment="content">
+  <body>
+  <div class="esti_container">
+    <div class="esti_section1 esti_sideMenu">
+      <li class="receiveEsti"><a href="#"
+      ><i class="fa-solid fa-location-arrow"></i>받은 견적</a></li>
+      <li class="sendEsti"><a href="#" th:href="@{/postEs}">보낸 견적</a></li>
+    </div>
+    <div class="esti_section2 esti_main">
+      <div class="title">
+        <i class="fa-solid fa-star" style="color: #ffdc15;"></i>견적함
+      </div>
+      <div th:if="${#lists.isEmpty(allGetEs)}">아무것도 없쒀</div>
+      <div class="estiBoxWrap" th:each="esti : ${allGetEs}">
+        <div class="estiBox">
+          <div class="estiBox_Title" th:text="${esti.category}"> 청소 > 사무실청소 </div>
+          <div class="estiBox_Content">
+            <div class="esti_content1">
+              <div class="esti_content1_1" id="content1">| 일을하마</div>
+              <div class="esti_content1_2" id="content2" th:text="${esti.nickname}">청소요정</div>
+            </div>
+            <div class="esti_content2">
+              <div class="esti_content2_1" id="content3" th:text="'| '+${esti.esti_gubun}">| 예상 비용</div>
+              <div class="esti_content2_2" id="content4" th:text="${esti.esti_price}">50,000원 </div>
+            </div>
+            <div class="esti_content3">
+              <div class="esti_content3_1" id="content5">| 보낸날짜</div>
+              <div class="esti_content3_2" id="content6" th:text="${esti.cdate}">2023-10-25</div>
+            </div>
+            <div class="esti_content4">
+              <div class="esti_content4_1" id="content7">| 희망날짜</div>
+              <div class="esti_content4_2" id="content8" th:text="${esti.hope_date}">2023-10-30</div>
+            </div>
+            <div class="esti_content5">
+              <div class="esti_content4_1" id="content9">| 전할내용</div>
+              <div class="esti_content4_2" id="content10" th:text="${esti.esti_text}">
+              </div>
+            </div>
+          </div>
+          <div class="estiBox_Icon">
+            <div id="delBtn">
+              <a href="" th:href="@{chat/{pid}(pid=${esti.estimate_id})}" ><i class="fa-solid fa-paper-plane"></i></a>
+              <form action="" method="post" th:object="${estimateAllForm}">
+                <input type="hidden" id="boardId" name="estimate_id" th:value="${esti.estimate_id}"/>
+                <input type="submit" value="삭제" class="btnSub">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const $btnSub = document.querySelectorAll('.btnSub');
+    [...$btnSub].forEach(ele => {ele.addEventListener('click', e=>{
+    if(!confirm("해당 견적서를 삭제하시겠습니까?")){e.preventDefault();}
+      })
+    })
+  </script>
+  </body>
+</div>
+</html>

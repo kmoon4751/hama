@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+<link
+    th:href="@{https://fonts.googleapis.com/css2?family=Gowun+Batang&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@400;600&family=Roboto&display=swap}"
+    rel="stylesheet"
+>
+<link rel="stylesheet" th:href="@{/css/Public/font.css}">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/chatting/chatting.css}">
+</th:block>
+<th:block layout:fragment="script">
+  <script src="https://kit.fontawesome.com/ba16334cfd.js" crossorigin="anonymous"></script>
+</th:block>
+
+
+<div layout:fragment="content">
+  <body>
+  <div class="read_container">
+    <div class="read_wrap">
+      <div class="read_category">
+        <div>견적서</div>
+      </div>
+      <div class="read_txt_main">
+        <div class="read_txt">
+          <div class="content_profile">
+            <div class="profile_1 writerPhoto" >
+              <img th:src="@{|/view/${estiForm.pic}|}" >
+            </div>
+            <div class="profile_2 writerInfo">
+              <div class="writerNick" th:text="${estiForm.nickname}">${profile[i].닉네임}</div>
+              <div class="upLoad_Cnt">
+                <span class="uploadDate" th:text="${estiForm.hope_date}">${profile[i].희망날짜}</span>
+              </div>
+              <div class="upLoad_Cnt">
+                <span class="uploadDate" th:text="${estiForm.esti_cdate}">${profile[i].보낸날짜}</span>
+              </div>
+            </div>
+            <div class="profile_3 menu">
+              <div class="upLoad_Cnt">
+                <span class="uploadDate" th:text="${estiForm.area}">${profile[i].지역}</span>
+              </div>
+              <div class="upLoad_Cnt">
+                <span class="uploadDate" th:text="${estiForm.esti_gubun} + ${estiForm.esti_price}">${profile[i].총비용}</span>
+              </div>
+            </div>
+          </div>
+          <div class="content_text" th:text="${estiForm.esti_text}">${text[i].내용}</div>
+        </div>
+      </div>
+      <div class="read_cmt">
+
+        <div class="read_cmt">
+          <div class="read_comment">
+            <div class="comment_bar">
+              <div><i class="fa-solid fa-comments" style="color: #cccccc;"></i> 댓글
+                <span id="cmtCnt"></span>
+              </div>
+            </div>
+
+            <div id="comment_section">
+              <div class="user_nick_time_del" th:each="coment : ${comentList}">
+                <span class="userNick" th:text="${coment.nickname}">${댓글닉}</span>
+                <span class="userCmtTime" th:text="${coment.coment_date}">${comment.만들어진날짜}</span>
+                <form th:action="@{/chat/delete/{eid}(eid=${eid})}" method="post" th:object="${comentListForm}">
+                <input type="hidden" th:value="${coment.coment_id}" name="coment_id">
+                <button type="submit" id="btnSub" class="delete-comment-button" data-index="${index}" th:if="${session.sessionForm.nickname} == ${coment.nickname}">삭제</button>
+<!--                  세션닉이랑 댓글닉이 같으면 활성화-->
+                </form>
+
+              <div class="userCmt" th:text="${coment.coment_text}">${comment.댓글내용}</div>
+              </div>
+            </div>
+            <div class="comment_writeBox2">
+              <div class="" th:text="${session.sessionForm.nickname}">세션에있는닉네임</div>
+              <form class="writeBox3" action="" method="post" th:object="${comentAddForm}">
+                <input type="hidden" th:value="${session.sessionForm.member_id}" name="member_id"/>
+                <input type="text" id="textInput" name="coment_text" placeholder="댓글을 입력해주세요" required>
+                <input type="submit" id="sendBtn" value="댓글작성">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const $btnSub = document.querySelectorAll('#btnSub');
+    [...$btnSub].forEach(ele => {ele.addEventListener('click', e=>{
+    if(!confirm("해당 요청을 삭제하시겠습니까?")){e.preventDefault();}
+      })
+    })
+  </script>
+  </body>
+</div>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/requestCreate/requestCreate.css}">
+    <link rel="stylesheet" th:href="@{/css/requestCreate/btn.css}">
+</th:block>
+
+<div layout:fragment="content">
+  <body>
+  <div class="container">
+    <div class="main">
+      <div class="main_top">
+        <div class="main_title">
+          <h1>견적서 작성</h1>
+          <h3 th:text="${workgive.nickname} +'님에게 보낼 견적서를 작성해주세요.'">목록을 찾을수없습니다.</h3>
+        </div>
+        <div class="main_info">
+          <div class="pic">
+            <div class="profile">
+              <img th:src="@{|/view/${workgive.pic}|}" >
+            </div>
+          </div>
+          <div class="info">
+            <div class="hope">
+              <div class="hope_list">
+                <div class="hope_title"><h3>희망사항</h3></div>
+                <div class="hope_text" th:text="${workgive.hope_text}"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="info_top_p">
+          <div class="info_top">
+            <div class="job" th:text="'분야 : '+${workgive.category}"></div>
+            <div class="local" th:text="'지역 : '+${workgive.area}"></div>
+            <div class="date" th:text="'희망날짜 : '+${workgive.hope_date}"></div>
+          </div>
+        </div>
+      </div>
+      <div class="main_bot">
+        <div class="title">
+          <div class="cost_title">예상 금액</div>
+          <div class="text_title">상세 내용</div>
+<!--          <div class="file_title">파일 첨부</div>-->
+        </div>
+        <form class="insert" method="post" th:object="${estimateForm}">
+
+          <div class="cost_radio">
+            <input type="radio" class="checks" name="esti_gubun" value="총 비용">총 비용
+            <input type="radio" class="checks" name="esti_gubun" value="시간 당">시간 당
+          </div>
+          <div class="cost_bot">
+            <div class="const_bot_one">
+              <input type="text" id="numberInput" name="esti_price" maxlength="11" oninput="formatPrice(this)" placeholder="금액을 입력하세요.">
+            </div>
+            <div class="numberInput_append">원</div>
+          </div>
+          <div class="text_bot">
+            <textarea class="chat-text-box" placeholder="주마한테 말하고픈 상세한 견적과 설명을 해주세요. (최대 100자)" spellcheck="false"></textarea>
+          </div>
+<!--          <div class="filebox">-->
+<!--            <input class="upload-name" value="첨부파일" placeholder="첨부파일" name="esti_file">-->
+<!--            <label for="file">파일찾기</label>-->
+<!--            <input type="file" id="file">-->
+<!--          </div>-->
+          <div>
+            <input type="hidden" id="member_id" name="member_id">
+            <input type="hidden" id="textarea" name="esti_text">
+          </div>
+          <div class="btn_area">
+            <button type="submit" class="button borderbutton" value="견적서 보내기" disabled ></button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <script th:inline="javascript">
+    let $mid = /*[[${workgive.member_id}]]*/;
+    const $memberid = document.querySelector('#member_id');
+    console.log($mid);
+    const postData = async (pid,payload) =>{const option = {
+      method : 'POST',
+      headers : {'Content-type' : 'application/json'},
+    };
+    try{
+      const url = `requestBoard/${pid}`;
+      const response = await fetch(url,option);
+      console.log(response);
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch(err){
+        console.error(err.message);
+      }
+    }
+
+    const text = document.querySelector('.chat-text-box');
+    const $btnSub = document.querySelector('.button');
+    const $textarea = document.querySelector('#textarea');
+      $btnSub.addEventListener('click',e=>{
+        $textarea.value = text.value;
+        $memberid.value = $mid;
+      });
+  </script>
+
+  <script src="/js/estimate.js"></script>
+  </body>
+</div>
+</html>

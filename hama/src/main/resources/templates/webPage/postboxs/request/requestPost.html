@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+<link
+    th:href="@{https://fonts.googleapis.com/css2?family=Gowun+Batang&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@400;600&family=Roboto&display=swap}"
+    rel="stylesheet"
+>
+<link rel="stylesheet" th:href="@{/css/Public/font.css}">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/postboxs/request/sendReq.css}">
+</th:block>
+<th:block layout:fragment="script">
+  <script src="https://kit.fontawesome.com/ba16334cfd.js" crossorigin="anonymous"></script>
+</th:block>
+
+<div layout:fragment="content">
+  <body>
+  <div class="req_container">
+    <div class="req_section1 req_sideMenu">
+<!--      <li class="sendReq"><a href="#"><i class="fa-solid fa-location-arrow"></i>나의 요청</a></li>-->
+<!--      <li class="receiveReq"><a href="#" th:href="@{/getRq}">받은 요청</a></li>-->
+    </div>
+    <div class="req_section2 req_main">
+      <div class="title">
+        <i class="fa-solid fa-star" style="color: #ffdc15;"></i>요청함</div>
+      <div th:if="${#lists.isEmpty(allRq)}">아무것도 없쒀</div>
+      <div class="reqBoxWrap" th:each="allRq : ${allRq}">
+        <div class="reqBox">
+          <div class="reqBox_Title" th:text="${allRq.category}"> 청소 > 사무실 청소 </div>
+          <div class="reqBox_Content">
+            <div class="req_content1">
+              <div class="req_content3_1" id="content5">| 요청날짜</div>
+              <div class="req_content3_2" id="content6" th:text="${allRq.cdate}">2023-10-25</div>
+            </div>
+            <div class="req_content2">
+              <div class="req_content4_1" id="content7">| 희망날짜</div>
+              <div class="req_content4_2" id="content8" th:text="${allRq.hope_date}">2023-10-30</div>
+            </div>
+            <div class="req_content3">
+              <div class="req_content1_1" id="content1">| 지역</div>
+              <div class="req_content1_2" id="content2" th:text="${allRq.area}">울산/울주군</div>
+            </div>
+            <div class="req_content4">
+            </div>
+            <div class="req_content5">
+              <div class="req_content4_1" id="content9">| 희망사항</div>
+              <div class="req_content4_2" id="content10" th:text="${allRq.hope_text}">빠르게 해주실분 구해요~</div>
+            </div>
+          </div>
+          <div class="reqBox_Icon">
+            <div id="delBtn">
+            <form action="" method="post" th:object="${requestForm}">
+              <input type="hidden" id="boardId" name="board_Id" th:value="${allRq.board_Id}"/>
+              <input type="submit" value="삭제" class="btnSub">
+            </form>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const $btnSub = document.querySelectorAll('.btnSub');
+    [...$btnSub].forEach(ele => {ele.addEventListener('click', e=>{
+    if(!confirm("해당 요청을 삭제하시겠습니까?")){e.preventDefault();}
+      })
+    })
+  </script>
+  </body>
+</div>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/cus_cen/cus_cen copy.css}">
+</th:block>
+<th:block layout:fragment="script">
+  <script src="https://kit.fontawesome.com/fd3c29529b.js" crossorigin="anonymous"></script>
+</th:block>>
+
+<div layout:fragment="content">
+  <body>
+
+  <div class="cus_center_title"><span id="h3_title"> 고객센터 </span></div>
+
+  <div class="question_box_Big">
+    <div class="question_box_Med">
+  <dialog id="first_modal">
+    <div class="modal_container">
+      <div class="modal_xMark"><i class="fa-solid fa-xmark "></i></div>
+      <div class="modal_Content modal_modalContent">
+        <div><i class="fa-solid fa-q"></i></div>
+        <div id="modalContent"></div>
+      </div>
+      <div class="modal_Content modal_Answer">
+        <div><i class="fa-solid fa-a"></i></div>
+        <div id="modalText"></div>
+      </div>
+    </div>
+  </dialog>
+
+      <div class="question_box_small">
+        <div class="question_box_small_left">
+          <div class="question_box_small_left_sub">
+            <div></div>
+            <div class="question_text question_box_title">
+              <h2>자주 묻는 질문</h2>
+            </div>
+
+            <div class="">
+              <ol>
+                <li class="question_text">
+                  <a href="#" class="question_text_modal">함께하마는 어떤 서비스인가요?</a>
+                  <p class="hidden">도움이 필요한 사람과 도움을 주는 사람을 연결해주는 플랫폼 서비스입니다.</p>
+                </li>
+                <li class="question_text">
+                  <a href="#" class="question_text_modal">견적요청서 / 견적서는 무엇인가요?</a>
+                  <p class="hidden">도움을 원하는 사람이 도움을 요청하기 위해 작성하는 요청서입니다.</p>
+                </li>
+                <li class="question_text">
+                  <a href="#" class="question_text_modal">채팅은 어떻게 하나요?</a>
+                  <p class="hidden">"주마"가 작성한 견적요청 내용을 확인 후 매칭하기 버튼을 통해 채팅을 주고받을 수 있습니다.</p>
+                </li>
+                <li class="question_text">
+                  <a href="#" class="question_text_modal">하마찾기는 어떤 메뉴인가요?</a>
+                  <p class="hidden">하마를 홍보할 수 있는 포트폴리오 글을 작성할 수 있는 공간입니다.</p>
+                </li>
+                <li class="question_text">
+                  <a href="#" class="question_text_modal">하마요청은 어떻게 하나요?</a>
+                  <p class="hidden">휴대폰, 신분증, 계좌인증을 통하여 할 수 있습니다.</p>
+                </li>
+                <li class="question_text">
+                  <a href="#" class="question_text_modal">아이디(이메인 주소) / 비밀번호가 기억나지 않아요?</a>
+                  <p class="hidden">휴대폰 인증으로 통하여 찾는 기능이 있습니다. 걱정하지 마세요.</p>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        <div class="question_box_small_right">
+          <div class="question_box_small_right_sub">
+            <div class="question_view_border">
+              <div></div>
+              <div class="question_text question_box_title">
+                <h2>하마 / 고객 가이드</h2>
+              </div>
+              <div class="question_text question_reference_mark"><span>&#8251;</span>견적서</div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">견적이 무엇인가요?</a>
+                <p class="hidden">사용자간에 주고 받는 요구사항들을 말합니다.</p>
+              </div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">견적은 어떻게 보내나요?</a>
+                <p class="hidden">견적요청서 작성기능을 이용하시면 편리하게 보내실 수 있습니다.</p>
+              </div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">견적을 보낸 수 없어요!</a>
+                <p class="hidden">더 나은 사이트를 만들기 위해 노력하겠습니다. </p>
+              </div>
+              <div class="question_text question_border_color">
+                <a href="#" class="question_text_modal">하마도 견적요청을 할 수 있나요?</a>
+                <p class="hidden">네, 모든 사용자를 위한 사이트입니다.</p>
+              </div>
+            </div>
+            <div class="question_view_border">
+              <div class="question_text question_reference_mark"><span>&#8251;</span>고객</div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">견적요청서에 견적을 보내고 싶어요!</a>
+                <p class="hidden">견적요청서를 조회 시 매칭하기 버튼이 견적요청서 근처에 활성화됩니다.</p>
+              </div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">전화로 연락을 할 수 있나요?</a>
+                <p class="hidden">죄송합니다. 소비자보호를 위하여 전화번호는 알려드리지 않습니다. </p>
+              </div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">안심번호는 무엇인가요?</a>
+                <p class="hidden">사용자간의 개인정보를 위해 안심번호를 제공해드립니다.</p>
+              </div>
+              <div class="question_text question_border_color">
+                <a href="#" class="question_text_modal">채팅방 기능은 어떤 것이 있나요?</a>
+                <p class="hidden">사용자간의 원할한 소통을 할 수 있게 기능을 제공해 드립니다.</p>
+              </div>
+            </div>
+            <div class="question_view_border">
+              <div class="question_text question_reference_mark">
+                <span>&#8251;</span>하마찾기
+              </div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">하마찾기가 무엇인가요?</a>
+                <p class="hidden">하마를 홍보할 수 있는 포트폴리오 글을 작성할 수 있는 공간입니다</p>
+              </div>
+              <div class="question_text">
+                <a href="#" class="question_text_modal">글은 하나만 등록이 가능한가요?</a>
+                <p class="hidden">네, 하나만 등록하실 수 있습니다.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+  <script src="/js/cuscen.js"></script>
+</div>
+</html>

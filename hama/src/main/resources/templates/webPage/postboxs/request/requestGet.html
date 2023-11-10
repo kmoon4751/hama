@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+<link
+    th:href="@{https://fonts.googleapis.com/css2?family=Gowun+Batang&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@400;600&family=Roboto&display=swap}"
+    rel="stylesheet"
+>
+<link rel="stylesheet" th:href="@{/css/Public/font.css}">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/postboxs/request/receiveReq.css}">
+</th:block>
+<th:block layout:fragment="script">
+  <script src="https://kit.fontawesome.com/ba16334cfd.js" crossorigin="anonymous"></script>
+</th:block>
+
+
+<div layout:fragment="content">
+  <body>
+  <div class="req_container">
+    <div class="req_section1 req_sideMenu">
+      <li class="sendReq"><a href="#" th:href="@{/postRq}">나의 요청</a></li>
+      <li class="receiveReq"><a href="#"><i class="fa-solid fa-location-arrow"></i>받은 요청</a></li>
+    </div>
+    <div class="req_section2 req_main">
+      <div class="title">
+        <i class="fa-solid fa-star" style="color: #ffdc15;"></i>요청함</div>
+      <div class="reqBoxWrap">
+        <div class="reqBox">
+          <div class="reqBox_Title"> 사무업무 기타 </div>
+          <div class="reqBox_Content">
+            <div class="req_content1">
+              <div class="req_content1_1" id="content1">| 일을 주마</div>
+              <div class="req_content1_2" id="content2">월급루루팡루루피</div>
+            </div>
+            <div class="req_content2">
+              <div class="req_content2_1" id="content3">| 예상 비용</div>
+              <div class="req_content2_2" id="content4">협의가능 </div>
+            </div>
+            <div class="req_content3">
+              <div class="req_content3_1" id="content5">| 보낸 날짜</div>
+              <div class="req_content3_2" id="content6">2023-10-25</div>
+            </div>
+            <div class="req_content4">
+              <div class="req_content4_1" id="content7">| 희망 날짜</div>
+              <div class="req_content4_2" id="content8">최대한 빨리</div>
+            </div>
+            <div class="req_content5">
+              <div class="req_content4_1" id="content9">| 전할 내용</div>
+              <div class="req_content4_2" id="content10">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sed, harum!</div>
+            </div>
+          </div>
+          <div class="reqBox_Icon"><div id="delBtn">
+            <i class="fa-solid fa-paper-plane"></i>
+            <i class="fa-solid fa-trash-can" ></i>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+</div>
+</html>

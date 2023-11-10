@@ -1,0 +1,8 @@
+/* system계정에서 실행한다.    */
+/* Oracle 12c 이상의 CDB 사용자 생성을 위해 c##을 붙인다    */
+DROP USER c##project CASCADE;
+CREATE USER c##project IDENTIFIED BY project1234 DEFAULT TABLESPACE users TEMPORARY TABLESPACE temp PROFILE DEFAULT;
+GRANT CONNECT, RESOURCE TO c##project;
+GRANT CREATE VIEW, CREATE SYNONYM TO c##project;
+GRANT UNLIMITED TABLESPACE TO c##project;
+ALTER USER c##project ACCOUNT UNLOCK;

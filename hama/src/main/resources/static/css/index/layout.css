@@ -1,0 +1,660 @@
+*{  
+   letter-spacing: 1px;
+   line-height: 20px;
+   font-family: 'GowunBatang-Regular';
+}
+@font-face {
+   font-family: 'GyeonggiBatang';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+       }
+@font-face {
+   font-family: 'LINESeedKR-Bd';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+   font-weight: 700;
+   font-style: normal;
+}
+/* *{
+  outline: 1px solid red;
+  font-family: LINESeedKR-Bd;
+  font-weight: bold;
+} */
+/* 헤더시작 */
+.header{
+  display: grid;
+  grid-area: header;
+  grid-template-areas: ". header2 .";
+  grid-template-columns: 1fr 1024px 1fr;
+  background-color: #fff;
+  top: 0;
+  position: sticky;
+  z-index: 1;
+  border-bottom: 2px solid #f2f2f2;
+  font-family: LINESeedKR-Bd;
+  font-weight: bold;
+  padding-bottom: 5px;
+  padding-top: 1px;
+  
+} 
+/* 헤더 요소들 (가운데) */
+.headers{
+  background-color: #FFF;
+  display: grid;
+  grid-area: header2;
+  grid-template-areas: "logo gnb . login";
+  grid-template-columns: repeat(3,1fr);
+  
+}
+/* 로고 */
+.header .logo_loggo{
+  grid-area: logo;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+/* 로그인 회원가입 */
+.header .login_signup{
+  grid-area: login;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+/* 채팅 오른쪽 마진 */
+.header .login_signup .login:nth-of-type(4){
+  margin-right: 20px;
+}
+/* gnb */
+.header .gnb{
+  grid-area: gnb;
+  width: 550px;
+}
+.header .headers .gnb .menu__headers{
+  display: flex;
+  margin-top: 35px;
+  border: none;
+}
+
+/* gnb 세부 */
+ul{
+  list-style:none;
+}
+a{
+  text-decoration:none; color:#333;
+}
+.header .headers .gnb .menu__headers:after{
+  display:block; content:''; clear:both;
+}
+.header .headers .gnb .menu__headers > li{
+  position:relative; float:left; margin-right:10px; width: 120px;
+text-align: center;
+}
+.header .headers .gnb .menu__headers > li > a{
+  display:block; padding:0; background:#fff; height:40px; line-height:40px; color:#000; border-radius: 50%; font-size: 1.2rem;
+}
+.header .headers .gnb .menu__headers > li:hover .depth_1 {
+  display:block;
+}
+.header .headers .gnb .menu__headers .depth_1{
+  display:none; position:absolute; left:0; right:0; text-align:center;
+padding: 0; margin: 0;
+}
+.header .headers .gnb .menu__headers .depth_1 a{
+  display:block; padding:5px; background:#666; color:#fff;
+}
+
+/* 로그인,회원가입 */
+.header .login_signup .login{
+   
+   border-radius: 40%;
+   font-size: 1em;
+   font-weight: bold;
+   margin: 10px;
+   margin-top: 30px;
+   
+}
+/* 맨 오른쪽 헤더 아이콘 */
+i.fa-solid.fa-user{
+  font-size: 30px;
+  color: gray;
+  position: relative;
+  margin-top: 10px;
+}
+/* login2 = (받은요청 받은견적 채팅 아이콘) */
+.header .login_signup .login2{
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  margin-top: 30px;
+}
+.header .login_signup .login2:after{
+  display:block; content:''; clear:both;
+}
+.header .login_signup .login2 > li{
+  position:relative; float:left; margin-right:10px; width: 50px;
+text-align: center; list-style: none;
+}
+
+.header .login_signup .login2 > li > a{
+  display:block; padding:0; border: 1px solid gray; height: 50px;line-height:40px; color:#fff; border-radius: 50%; align-items: center;
+}
+.header .login_signup .login2 > li:hover .depth_1 {
+  display:block;
+}
+.header .login_signup .login2 .depth_1{
+  display:none; position:absolute; left:0; right:0; text-align:center;
+padding: 0; margin: 0; width: 120px; background-color: #fff; z-index: 1;
+}
+.header .login_signup .login2 .depth_1 a{
+  display:block; padding:5px; background:#666; color:#fff;
+}
+.header .login_signup .login2 .depth_1 p{
+  margin: 5px;
+  padding: 0;
+}
+
+.container__banner{
+   display: grid;
+   grid-template-areas: ". banner .";
+   grid-template-columns: 1fr 1024px 1fr;
+   padding: 50px;
+   
+}
+.banner{
+   grid-area: banner;
+}
+.slide {
+   /* layout */
+   display: flex;
+   flex-wrap: nowrap;
+   overflow: hidden;
+   position: relative;
+   /* size */
+   width: 100%;
+   height: auto;
+   border-radius: 20px;
+   border: 0.065px solid #f2f2f2;
+   /* slide drag를 위해 DOM요소가 드래그로 선택되는것을 방지 */
+   user-select: none;
+   box-sizing: content-box;
+ }
+ .slide_item {
+   /* layout */
+   display: flex;
+   align-items: center;
+   justify-content: center;
+ 
+   /* position - 버튼 클릭시 left offset값을 적용시키기 위해 */
+   position: relative;
+   left: 0px;
+ 
+   /* size */
+   width: 100%;
+   height: auto;
+   /* flex item의 flex-shrink는 기본값이 1이므로 컨테이너 크기에 맞게 줄어드는데, 슬라이드를 구현할 것이므로 줄어들지 않도록 0을 준다. */
+   flex-shrink: 0;
+ 
+   /* transition */
+   transition: left 1.15s;
+ }
+ .slide_button {
+   /* layout */
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   /* position */
+   position: absolute;
+   /* 버튼이 중앙에 위치하게 하기위해 계산 */
+   top: calc(50% - 16px);
+   /* size */
+   width: 32px;
+   height: 32px;
+   /* style */
+   border-radius: 100%;
+   cursor: pointer;
+   opacity: 0.2;
+   font-size: 2rem;
+ }
+ 
+ .slide_prev_button {
+     left: 30px;
+   }
+   .slide_prev_button:hover {
+       transform: translateX(-5px);
+   }
+   .slide_next_button {
+       right: 30px;
+   }
+   .slide_next_button:hover {
+       transform: translateX(5px);
+   }
+
+ /* 페이지네이션 스타일 */
+ ul,
+ li {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+ }
+ .slide_pagination {
+   /* layout */
+   display: flex;
+   gap: 5px;
+ 
+   /* position */
+   position: absolute;
+   bottom: 0;
+   /* left:50%, translateX(-50%)를 하면 가로 가운데로 위치시킬 수 있다. */
+   left: 50%;
+   transform: translateX(-50%);
+ }
+
+ .slide_pagination > li {
+   /* 현재 슬라이드가 아닌 것은 투명도 부여 */
+   color: #7fb5ff88;
+   cursor: pointer;
+   font-size: 25px;
+   }
+ .slide_pagination > li.active {
+   /* 현재 슬라이드 색상은 투명도 없이 */
+   color: #7fb5ff;
+ }
+ 
+/* 공통사항 */
+.container__main1 {
+   display: grid;
+   grid-template-columns: 1fr 1024px 1fr;
+   grid-template-areas: ". main .";
+   padding-bottom: 50px;
+   
+}
+.main1 {
+   grid-area: main;
+}
+/* 메인 박스 안에서 카테고리 크기를 조정하기 위해
+카테고리 8개만 따로 담은 박스 */
+.main1 .content__main1{
+   display: flex;
+   justify-content: space-around;
+}
+.main1 .top__main1 {
+   display: flex;
+   justify-content: space-between;
+   margin-bottom: 30px;
+}
+
+/* 서비스 추천 */
+/* .main1 .top__main1 .service__main1 {
+   font-size: var(--font-size-xl);
+   font-family: LINESeedKR-Bd;
+   font-weight: bold;
+} */
+
+/* 전체보기 */
+
+
+/* 전체보기의 링크 */
+.main1 .top__main1 .full__main1 a {
+   text-decoration: none;
+   color: inherit;
+}
+/* 8개의 카테고리를 보여주는 박스모음 */
+.main1 .sec__main1 {
+   display: grid;
+   grid-template-areas: "box1 box2 box3 box4"
+                        "box5 box6 box7 box8";
+   justify-items: center;
+   align-items: center;
+}
+
+/* 카테고리 텍스트 */
+/* .main1 .sec__main1 .box__main1.box1 .menu__main1 {
+   position: relative;
+   font-size: var(--font-size-m);
+} */
+
+/* 사진 + 텍스트를 포함한 박스 */
+.main1 .sec__main1 .box__main1 {
+   position: relative;
+   grid-template-columns: 2fr;
+   width: 150px;
+   height: auto;
+   display: grid;
+   justify-items: center;
+   margin-bottom: 20px;
+   margin-left: 40px;
+   margin-right: 40px;
+}
+.main1 .sec__main1 .box__main1.box1 {
+   grid-area: box1;
+}
+.main1 .sec__main1 .box__main1.box2 {
+   grid-area: box2;
+}
+.main1 .sec__main1 .box__main1.box3 {
+   grid-area: box3;
+}
+.main1 .sec__main1 .box__main1.box4 {
+   grid-area: box4;
+}
+.main1 .sec__main1 .box__main1.box5 {
+   grid-area: box5;
+}
+.main1 .sec__main1 .box__main1.box6 {
+   grid-area: box6;
+}
+.main1 .sec__main1 .box__main1.box7 {
+   grid-area: box7;
+}
+.main1 .sec__main1 .box__main1.box8 {
+   grid-area: box8;
+}
+.main1 .sec__main1 .box__main1 img {
+   width: 170px;
+   border-radius: 15px;
+}
+.main1 .sec__main1 .box__main1 .menu__main1 a {
+   text-decoration: none;
+   color: inherit;
+}
+
+:root {
+   /* 폰트 사이즈 */
+   --font-size-xl : 1.5rem;
+   --font-size-l : 1.25rem;
+   --font-size-m : 1.rem;
+}
+        
+.container__main2{
+   display: grid;
+   grid-template-columns: 1fr 1024px 1fr;
+   grid-template-areas: ". main2 .";
+   padding-bottom: 50px;
+}
+.main2{
+   grid-area: main2;
+}
+.main2 .section__main2 .information__main2{
+   display: flex;
+   justify-content: space-around;
+}
+/* 제목 */
+.main2 .section__main2 .main2_head{
+   display: flex;
+   justify-content: space-between;
+   position: relative;
+   margin-bottom: 30px;
+}
+
+/* 박스 */
+.main2 .section__main2 .item__main2{
+   border: .0625rem solid #f2f2f2;
+   background-color: #fafafa;
+   border-radius: 16px;
+   width: 430px;
+   height: 136px;
+   padding: 20px;
+}
+/* 이미지, 직업, 별명 부모박스 */
+.main2 .section__main2 .item__main2 .box1__main2{
+   display: flex;
+   position: relative;
+}
+/* 이미지 박스 */
+.main2 .section__main2 .item__main2 .box1__main2 .pic__main2 {
+   width: 3rem;
+   height: 3rem;
+   margin-right: 0.75rem;
+   
+}
+/* 이미지 */
+.main2 .section__main2 .item__main2 .box1__main2 .pic__main2 img{
+   width: 3rem;
+   height: 3rem;
+   border-radius: 50%;
+}
+/* 소개글 */
+.main2 .section__main2 .item__main2 .box2__main2 p{
+   margin: 1rem 0 0.75rem;
+   height: 42px;
+}
+/* 경력 */
+.main2 .section__main2 .item__main2 .box3__main2 {
+   margin-top: 1rem;
+}
+
+/* 직업 소개 경력 */
+.main2 .section__main2 .item__main2 .box1__main2 .job__main2,
+.main2 .section__main2 .item__main2 .box2__main2 ,
+.main2 .section__main2 .item__main2 .box3__main2 {
+   font-size: 0.875rem;
+}
+    /*모든 요소 테두리*/
+    /* *{outline: 1px solid red;} */
+
+    *{margin: 0px; padding: 0px;}
+
+    
+    /* 리스트 스타일 지우기(점) */
+    ul{list-style: none;}
+
+
+    
+    /* 전체박스 그리드 위치 정렬 */
+    .community__main3{
+        display: grid;
+        grid-template-areas: 
+        ". community__menu ."
+        ". main3 .";
+        grid-template-columns: 1fr 1024px 1fr;
+        padding-bottom: 50px;
+        flex-wrap: wrap;
+    }
+    
+    
+    /* 궁금해요 얼마예요 모여봐요 위치 */
+    .community__menu{
+        grid-area: community__menu;
+        
+        
+    }
+    
+    /* 게시글 박스 위치정렬, 감싸기 */
+    .community__main3 .community__post{
+        grid-area: main3;
+        
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .main3 .community__main3 .community__menu .community__more{
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-bottom: 30px;
+    }
+    
+    /* 전체보기 위치 정렬*/
+    .community__more{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+
+    }
+    
+
+    /* a태그 파란색 지우기*/
+    .community__main3 .community__menu .community__cate__link{
+        text-decoration: none;
+        color: inherit; /* 검은색 강제 부여*/
+        font-size: 17px;
+        
+    }
+    
+    /* 궁금해요 얼마예요 모여봐요 전체박스 중앙정렬 및 여백*/
+    .community__cate{
+        display: flex;
+        justify-content: center;
+        padding: 5px;
+        margin: 10px;
+    }
+
+    /* 궁금해요 얼마예요 모여봐요 개별 박스 */
+    .community__main3 .community__menu .community__cate .community__cate__desc{
+        /*사이 여백*/
+        margin-left: 20px;
+        margin-right: 20px;
+
+        font-weight: bold;
+        font-size: larger;
+    }
+               
+    /*게시글 카테고리 */
+    .item__cate
+    {
+        margin-left: 20px; /* 왼쪽 여백 */
+        font-size: small; /* 폰트 사이즈 */
+    }
+
+    /*게시글 박스들 사이 여백*/
+    .community__main3 .community__post .item__main3{
+        margin: 40px;
+        padding: 10px;
+        width: 412px;
+
+        /*게시글 박스 별 회색 구분선*/
+        border-top: 1px solid #eee;
+
+    }
+
+    /* 사진, 제목, 내용 위치*/
+    .community__main3 .community__post .item__main3 .item__post{
+        display: flex; 
+    }
+
+    /* 커뮤니티 게시글 사진 */
+    .community__main3 .community__post .item__main3 .item__post .pic{
+        margin : 10px;
+        border-radius: 50%;
+        width: 70px;
+    }
+
+    /* 제목, 내용 박스 크기 */
+    .community__main3 .community__post .item__main3 .item__post .desc{
+        flex: 1;
+        margin-top: 20px;    
+
+    }
+    
+    /*글 제목 폰트*/
+    /* .item__post__desc__title
+    {
+        font-weight: bolder;
+    } */
+
+    :root{
+
+      /* 폰트 사이즈 */
+      --font-size-xxl: 30px;
+      --font-size-xl: 23px;
+      --font-size-l: 17px;
+      --font-size-m: 14px;
+      --font-size-s: 10px;
+  
+      /* 폰트 컬러 */
+      --font-color-1 : #111;
+  
+      /* 배경색 */
+      --back-color-1 : #eee;
+  
+      /* 라인색 */
+      --border-color-1 : #999;
+  
+      /* 여백 */
+      --padding-size: 14px;
+  
+      /* 자간 */
+      --letter-spacing: 5px;
+      
+  }
+    
+  
+/* *{outline: 1px solid rebeccapurple;} */
+
+*{margin: 0; padding: 0;}
+
+
+/*이용약관 개인정보처리방침 자묻질 고이사항 광고문의 박스*/
+
+.menu__footer{
+    display: flex;
+    justify-content: space-around; /* 박스 거리 정렬*/
+    
+    /*위 아래 여백*/
+    padding: 30px;
+    margin: 10px;
+
+    /*양 옆 여백*/
+    margin-left: 400px;
+    margin-right: 400px;    
+    font-size: small;
+}
+
+
+a{
+    text-decoration: none;
+    color: inherit; /*명시적으로 부모태그의 글자색을 상속받게 강제 부여해야 한다.*/
+}
+/*↑ 원래 a태그는 상위요소의 색을 상속받지 않는다.*/
+
+
+/*푸터의 전체*/ 
+.footer{
+    text-transform: uppercase; /*전체 글자를 대문자로*/
+}
+
+/*푸터의 top 박스*/
+.footer .footer__top{
+    display: flex;
+    justify-content: center;/*주축기준 중앙정령*/
+    align-items: flex-end; /*세로축 기준 맨 아래쪽으로(수직정렬)*/
+    height: 50px;/*상자의 세로크기*/
+    padding-bottom: 10px; /*상자 내부 아래쪽 여백*/
+}
+
+/*푸터의 body 박스*/
+.footer .footer__body{
+    /*변수를 사용할 땐 var() */
+    color: var(--color-font1);
+    background-color:var(--back-color-1);
+    font-size: small;
+}
+
+/*푸터의 바디 박스들을 중앙정렬*/
+.footer .footer__body .footer__content,
+.footer .footer__body .footer__copyright{
+    display: flex;
+    justify-content: center; /* 주축 기준 중앙정렬*/
+}
+
+/*컨텐츠 박스*/
+.footer .footer__body .footer__content{
+    padding: 20px 0; /*내부여백 세로 가로*/
+}
+
+/*각 컨텐츠 박스의 타이틀 스타일*/
+.footer .footer__body .footer__content .title{
+    font-weight: bold;
+}
+
+
+.footer .footer__body .footer__content .footer__content3{
+    margin-right: 200px; /*컨텐츠의 박스와 박스 사이의 간격*/
+}
+
+
+/*위 아래 여백(=y축 여백)*/
+.footer .footer__body .footer__copyright{
+    padding: 20px 0;
+}

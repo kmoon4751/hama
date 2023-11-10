@@ -1,0 +1,175 @@
+/* 공통사항 */
+* {
+    /* outline: 1px solid gray; */
+    margin: 0;
+    padding: 0;
+    color: #2A2F57;
+    font-family: 'GowunBatang-Regular';
+}
+.container__main1 {
+    display: grid;
+    grid-template-columns: 1fr 1024px 1fr;
+    grid-template-areas: ". main .";
+    padding-bottom: 100px;
+    width: 100%;
+}
+.main1 {
+    grid-area: main;
+}
+/* 메인 박스 안에서 카테고리 크기를 조정하기 위해
+카테고리 8개만 따로 담은 박스 */
+.main1 .content__main1{
+    display: flex;
+    justify-content: space-around;
+}
+.main1 .top__main1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* 서비스 추천 */
+.main1 .top__main1 .service__main1 h2 {
+    /* font-size: var(--font-size-xl); */
+    font-family: LINESeedKR-Bd;
+    font-weight: bolder;
+}
+
+/* 전체보기 */
+/* .main1 .top__main1 .full__main1 {
+    font-size: small;
+    margin-top: 10px;
+} */
+.fa-angles-right i{
+    font-size: 40px;
+    cursor: pointer;
+}
+/* 전체보기의 링크 */
+/* .main1 .top__main1 .full__main1 a {
+    text-decoration: none;
+    color: inherit;
+} */
+/* 8개의 카테고리를 보여주는 박스모음 */
+.main1 .sec__main1 {
+    display: grid;
+    grid-template-areas: "box1 box2 box3 box4"
+                         "box5 box6 box7 box8";
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+/* 카테고리 텍스트 */
+.main1 .sec__main1 .box__main1.box1 .menu__main {
+    position: relative;
+    font-size: var(--font-size-m);
+}
+
+/* 사진 + 텍스트를 포함한 박스 */
+.main1 .sec__main1 .box__main1 {
+    position: relative;
+    grid-template-columns: 2fr;
+    width: 150px;
+    height: auto;
+    display: grid;
+    justify-items: center;
+    margin-bottom: 20px;
+    /* margin-left: 40px; */
+    margin-right: 40px;
+}
+/* 서비스 추천 텍스트 : 포장이사, 개인 PT ... */
+.rcmTxt{
+    margin-top: 10px;
+    color: #2A2F57;
+}
+.box__main1 .box1:hover h4,
+.box__main1 .box2:hover h4,
+.box__main1 .box3:hover h4,
+.box__main1 .box4:hover h4,
+.box__main1 .box5:hover h4,
+.box__main1 .box6:hover h4,
+.box__main1 .box7:hover h4,
+.box__main1 .box8:hover h4
+ {
+    color: #00B0FA;
+}
+/* 서비스 추천 이미지 흑백 효과 */
+.rcmImg{
+    filter: grayscale(90%);
+    transition: filter 0.2s, transform 0.3s;
+    transform: scale(1);
+        /* 초기 크기 */
+}
+.rcmImg:hover{
+    filter: grayscale(0%);
+    transition: filter 0.2s;
+    transform: scale(1.05); /* 호버 시 약간 확대된 크기 */
+}
+.main1 .sec__main1 .box__main1.box1 {
+    grid-area: box1;
+}
+.main1 .sec__main1 .box__main1.box2 {
+    grid-area: box2;
+}
+.main1 .sec__main1 .box__main1.box3 {
+    grid-area: box3;
+}
+.main1 .sec__main1 .box__main1.box4 {
+    grid-area: box4;
+}
+.main1 .sec__main1 .box__main1.box5 {
+    grid-area: box5;
+}
+.main1 .sec__main1 .box__main1.box6 {
+    grid-area: box6;
+}
+.main1 .sec__main1 .box__main1.box7 {
+    grid-area: box7;
+}
+.main1 .sec__main1 .box__main1.box8 {
+    grid-area: box8;
+}
+.main1 .sec__main1 .box__main1 img {
+    width: 240px;
+    height: 150px;
+    border-radius: 10px;
+}
+.main1 .sec__main1 .box__main1 .menu__main1 a {
+    text-decoration: none;
+    color: inherit;
+}
+.scrollParent{
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+    height: 100vh;
+}
+.scrollView1{
+    scroll-snap-align: start;
+    /* overflow-y: visible; */
+    height: calc(100vh - 90px);
+    /* background-color: gold; */
+}
+.scrollView2{
+    padding-top: 10px;
+    scroll-snap-align: start;
+    height: calc(100vh - 90px);
+    /* background-color: cadetblue; */
+}
+.scrollParent::-webkit-scrollbar {
+    background-color: #fff;
+    height: 4px;
+    width: 4px;
+}
+.thisview{
+    scroll-snap-align: start;
+}
+
+.scrollParent::-webkit-scrollbar-track {
+    background-color: #fff
+}
+
+.scrollParent::-webkit-scrollbar-thumb {
+    background-color: #babac0;
+    border-radius: 4px
+}

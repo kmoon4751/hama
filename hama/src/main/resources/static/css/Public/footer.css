@@ -1,0 +1,88 @@
+
+*{margin: 0; padding: 0;}
+
+
+/*푸터의 전체*/ 
+.footer{
+    text-transform: uppercase; /*전체 글자를 대문자로*/
+    display: grid;
+    grid-template-areas: 'f1 footer f2';
+    grid-template-columns: 1fr 1024px 1fr;
+}
+
+/*푸터의 body 박스*/
+.footer__body{
+    grid-area: footer;   
+    /*변수를 사용할 땐 var() */
+    color: var(--color-font1);
+    background-color:var(--back-color-1);
+    font-size: small;
+}
+
+/*푸터의 왼쪽 박스 위치를 잡아주고 색 지정*/
+.f1{
+    grid-area: f1;
+    background-color:var(--back-color-1);
+}
+
+/*푸터의 오른쪽 박스 위치를 잡아주고 색 지정*/
+.f2{
+    grid-area: f2;
+    background-color:var(--back-color-1);
+}
+
+
+.menu__footer{
+    display: flex;
+    justify-content: space-around;     /* 박스 거리 정렬 */
+    
+    /*위 아래 여백*/
+    padding: 20px;
+    
+
+    /*양 옆 여백*/
+     /* margin-left: 400px;
+    margin-right: 400px;    */
+    font-size: small;
+}
+
+
+/* a태그는 상위요소의 색을 상속받지 않으므로 명시적으로 부모태그의 글자색을 상속받게 강제 부여 */ 
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+.footer__body{
+    padding: 10px;
+}
+
+/*푸터의 바디 박스들을 중앙정렬*/
+/* 주축 기준 중앙정렬*/
+.footer .footer__body .footer__content,
+.footer .footer__body .footer__copyright{
+    display: flex;
+    justify-content: center; 
+}
+
+/*컨텐츠 박스*/
+.footer .footer__body .footer__content{
+    padding: 20px 0;     /* 내부여백 세로 가로 */
+}
+
+/*각 컨텐츠 박스의 타이틀 스타일*/
+.footer .footer__body .footer__content .title{
+    font-weight: bold;
+}
+
+/*컨텐츠의 박스와 박스 사이의 간격*/
+.footer .footer__body .footer__content .footer__content3{
+    margin-right: 200px; 
+}
+
+
+/*위 아래 여백(=y축 여백)*/
+.footer .footer__body .footer__copyright{
+    padding: 20px 0;
+}

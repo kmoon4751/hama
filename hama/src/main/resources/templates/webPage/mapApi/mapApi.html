@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/only_footer}">
+<!--only_footer, header-->
+<link
+    th:href="@{https://fonts.googleapis.com/css2?family=Gowun+Batang&family=IBM+Plex+Sans+KR:wght@300&family=Jua&family=Nanum+Gothic:wght@700&family=Noto+Sans+KR:wght@400;600&family=Roboto&display=swap}"
+    rel="stylesheet"
+>
+<link rel="stylesheet" th:href="@{/css/Public/font.css}">
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/mapApi/mapApi.css}">
+</th:block>
+
+
+<div layout:fragment="content">
+  <body>
+  <div class="map_container">
+  <div class="map_wrap">
+    <div id="map" style="width:90vw;height:100vh;position:relative;overflow:hidden;"></div>
+    <ul id="category">
+      <li id="BK9" data-order="0">
+        <span class="category_bg bank"></span>
+        은행
+      </li>
+      <li id="MT1" data-order="1">
+        <span class="category_bg mart"></span>
+        마트
+      </li>
+      <li id="PM9" data-order="2">
+        <span class="category_bg pharmacy"></span>
+        약국
+      </li>
+      <li id="OL7" data-order="3">
+        <span class="category_bg oil"></span>
+        주유소
+      </li>
+      <li id="CE7" data-order="4">
+        <span class="category_bg cafe"></span>
+        카페
+      </li>
+      <li id="CS2" data-order="5">
+        <span class="category_bg store"></span>
+        편의점
+      </li>
+      <li>
+        <a href="" th:href="@{/}"><span class="index">홈</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  </div>
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=58d56fb6efcae0f41fd505c8bd4300c9&libraries=services"></script>
+  <script src="/js/mapApi.js"></script>
+  </body>
+</div>
+</html>

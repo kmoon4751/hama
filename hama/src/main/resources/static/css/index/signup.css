@@ -1,0 +1,131 @@
+        * {
+            /* outline: 1px solid gray; */
+            margin: 0;
+            padding: 0;
+            color: #2A2F57;
+        }
+
+        /* 컬러 */
+        :root {
+            --color-font1: #2A2F57;
+            /* 글자색 */
+            --color-font2: #381B1B;
+            /* 카카오톡 글자색 */
+
+            --color-bg1: #00B0FA;
+            /* 배경색 */
+            --color-bg2: #0056b3;
+            /* 어두운 배경색 */
+        }
+
+        .main {
+            margin:100px 0 50px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .title {
+            padding: 20px;
+            width:400px;
+            text-align: center;
+            border-bottom:1px solid #00B0FA;
+        }
+
+        .main .forms {
+            margin: 30px;
+        }
+
+        .container__signup {
+            padding: 40px;
+        }
+
+        .form {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .txt {
+            height: 20px;
+            width: 400px;
+            padding: 5px;
+            margin-top: 5px;
+            font-size: 15px;
+        }
+
+        .form .submit {
+            margin-left: 20px;
+            padding: 4px;
+            height: 35px;
+        }
+
+        .main .check {
+            /* background-color: gold; */
+            height: 200px;
+            padding: 10px;
+            padding-left: 50px;
+            padding-right: 30px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main .check .all {
+            margin: 5px;
+        }
+
+        .main .check .each {
+            margin: 10px;
+            margin-left: 15px;
+        }
+
+        .each1,
+        .each2,
+        .each3 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        .main .buttons {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .main .sign_btn_submit
+        {
+            height: 50px;
+            width: 410px;
+            margin: 10px 0 10px 0;
+            text-align: center;
+            font-size: larger;
+            background-color: #00B0FA;;
+            color: #fff;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .main .sign_btn_submit:hover{
+          background-color: var(--color-bg2);
+        }
+        .checkbox_field{
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          margin: 10px;
+        }
+        .checkbox_field > *{
+          margin: 10px;
+        }
+        input[type="checkbox"]{
+          width: 15px;
+          height: 15px;
+          font-size: 0.8rem;
+        }

@@ -1,0 +1,13 @@
+@charset"utf-8";
+:root {
+  --color-main-header-background: #fff;
+  --color-main-header-border-bottom: #f2f2f2;
+  --color-main-header-icon: #808080;
+  --color-main-banner-slide: #7fb5ff;
+  --color-main-footer-font: #111;
+  --color-main-footer-background: #eee;
+  --color-main-footer-border: #999;
+  --color-main-gnb-submenu: #666;
+  --color-main-gnb-font: #eee;
+  --color-main-background: #fcfcfc;
+}

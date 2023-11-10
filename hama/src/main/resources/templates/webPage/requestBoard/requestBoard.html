@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/request_board/community__request.css}">
+    <link rel="stylesheet" th:href="@{/css/request_board/category.css}">
+    <link rel="stylesheet" th:href="@{/css/request_board/btn.css}">
+    <link rel="stylesheet" th:href="@{/css/request_board/maintop.css}">
+</th:block>
+
+
+<div layout:fragment="content">
+  <body>
+  <div class ="top__title__postlist_ask_hama">
+    <div class ="title__postlist_ask_hama">
+      <h2>요청 게시판</h2>
+      <h4>도움이 필요한 '주마'님들에게 견적서를 보내보세요!</h4>
+    </div>
+  </div>
+  <div class ="postlist_ask_hama">
+    <section class="community__postlist_ask_hama">
+
+      <div class="box1">
+        <div class="location">
+          <!--  -->
+          <div class="select">
+
+
+          </div>
+        </div>
+
+        <!-- 받은 견적서 게시글 불러오는 부분. -->
+        <ul class="post-list" id="postList">
+          <li th:each="rqboard : ${rqboard}">
+            <div class="main_top">
+              <div class="main_info">
+                <div class="pic">
+                  <div class="profile">
+                    <img th:src="@{|/view/${rqboard.pic}|}" >
+                  </div>
+                </div>
+                <div class="info">
+                  <div class="hope">
+                    <div class="hope_list">
+                      <div class="hope_title"><h3 th:text="${rqboard.nickname}">${post.nickname}</h3></div>
+                      <div class="hope_text" th:text="${rqboard.hope_text}">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="info_top_p">
+                <div class="info_top">
+                  <div class="job" th:text="${rqboard.category}">
+                    분야 : ${post.category}
+                  </div>
+                  <div class="local" th:text="${rqboard.area}">
+                    지역 : ${post.area}
+                  </div>
+                  <div class="date" th:text="${rqboard.hope_date}">
+                    희망날짜 : ${post.hope_date}
+                  </div>
+                </div>
+              </div>
+              <a href="" th:href="@{/createRQ/{board_id}(board_id=${rqboard.board_id})}"><button class="button colorbutton">견적서 작성</button></a>
+<!--              <input type="hidden" id="boardId" th:value="${rqboard.board_id}">-->
+            </div>
+      </div>
+          </li>
+        </ul>
+    </section>
+
+  </div>
+<!--  <th:block th:inline="javascript">-->
+<!--    <script src="/js/community_request.js"></script>-->
+<!--  </th:block>-->
+  </body>
+</div>
+</div>
+</html>

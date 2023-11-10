@@ -1,0 +1,74 @@
+<!-- 😒 커뮤니티를 들어갔을 때 전체글 메뉴 때문에 사용했던 html.-->
+<!--11/02 : 커뮤니티를 들어갔을 때 바로 보이는 초기화면을 궁금해요 화면을 띄우기 때문에 기능을 꺼놓았음. -->
+<!--        살리고 싶으면 Controll에서 제일 첫 매핑을 주석해제한 후 본 파일의 32줄 div태그의 주석을 해제할 것.-->
+
+
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, beforHeader afterHeader-->
+
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/community/community.css}">
+</th:block>
+
+<th:block layout:fragment="script">
+<script src="/js/community/community.js"></script>
+</th:block>
+
+<div layout:fragment="content">
+<body>
+    <div class="container_commu">
+        <div class="containerWrap_commu">
+<!-- 사이드 메뉴 -->
+    <div class="commu_side">
+
+        <a href="test.html">
+            <div class="side side_write"> 글작성 </div>
+        </a>
+<!--        <a href="community.html">-->
+<!--            <div class="side side_whole"><i class="fa-solid fa-location-arrow"></i><a href="/community">전체</a></div>-->
+<!--        </a>-->
+<!--        <a href="community_question.html">-->
+            <div class="side side_question"> <a th:href="@{/community/question}">궁금해요</a></div>
+<!--        </a>-->
+<!--        <a href="community_howMuch.html">-->
+            <div class="side side_howMuch"><a th:href="@{/community/howmuch}">얼마예요</a></div>
+<!--        </a>-->
+<!--        <a href="community_gethering.html">-->
+            <div class="side side_gethering"><a th:href="@{/community/gethering}">모여봐요</a></div>
+<!--        </a>-->
+        <div class="side side_searching_wrap">
+            <input class="side side_searching" id="search1" type="text" placeholder="검색어 입력..." name="search2"></input>
+            <button class="side side_searching" id="search2">검색</button>
+        </div>
+                <script>
+                    // 검색 버튼 클릭 이벤트 처리
+                    document.getElementById('search2').addEventListener('click', function () {
+                        // 검색어 입력란의 값을 가져옴
+                        var searchText = document.getElementById('search1').value;
+
+                        // 검색어를 사용하여 원하는 동작을 수행 (예: 검색 결과 표시)
+                        alert('검색어: ' + searchText); // 여기에 실제 검색 로직을 추가하세요.
+                    });
+                </script>
+    </div>
+            <div class="main_commu">
+                <!-- 커뮤니티 페이지 제목 -->
+                <div class="commu_title">
+                    <div id="title1">
+                        <h2>커뮤니티</h2>
+                        <div id="title2"><br>함께 하마의 회원들과 다양한 이야기를 나눠보세요!
+                        </div>
+                    </div>
+                </div>
+                <!-- 이용자 게시글 목록 -->
+                <div class="commu_content" id="content-container"></div>
+            </div>
+        </div>
+    </div>
+    </body>
+</div>
+</html>

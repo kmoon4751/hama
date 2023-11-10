@@ -1,0 +1,201 @@
+*{
+    margin: 0px; padding: 0;
+}
+/* *{outline: 1px solid grey;} */
+
+/* 요청함 전체 */
+.esti_container{
+    display: grid;
+    grid-template-areas: 
+    "left main .";
+    grid-template-columns: 1fr 1024px 1fr;
+    margin-bottom: 100px;
+}
+
+/* 보낸요청 / 받은 요청 */
+.esti_section1{
+    grid-area: left;
+    min-width: 300px;
+}
+
+/* 메인 */
+.esti_section2{
+    grid-area: main;
+}
+
+/* 페이지 제목 : 요청함 */
+.esti_section2.esti_main .title {
+    height: 150px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    padding-right: 50px;
+    margin-bottom: 50px;
+    font-size: 2rem;
+    font-weight: bold;
+    border-bottom: 1px solid #00B0FA;
+    color: #0056b3;
+}
+.esti_section2.esti_main .title i{
+    margin: 7px;
+    font-size: .9em;
+}
+/* 보낸 요청 박스 테두리 */
+.estiBoxWrap {
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 1020px;
+}
+/* 보낸 요청 박스 : 제목 + 본문 + 아이콘 */
+.estiBox{
+    display: grid;
+    grid-template-areas: 
+    "estiBox_Title estiBox_Title"
+    "estiBox_Content estiBox_Icon";
+    grid-template-columns: 4fr 1fr;
+    grid-template-rows: 1fr 5fr;
+}
+
+/* 보낸 요청 박스 : 제목(카테고리) */
+.estiBox_Title{
+    grid-area: estiBox_Title;
+    background-color: #888;
+    color: aliceblue;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border-radius: 7px 7px 0px 0px;
+}
+
+/* 보낸 요청 박스 : 본문 */
+.estiBox_Content{
+    grid-area: estiBox_Content;
+    display: grid;
+    grid-template-areas: 
+    "user pay"
+    "sendEate hopeDate"
+    "coment coment";
+    padding: 30px 20px;
+    grid-template-columns: 1fr 1fr;
+    font-size: 1.3rem;
+    row-gap: 20px;
+}
+.estiBox_Content{
+    color: #888;
+}
+.esti_content1{
+    grid-area: user;
+    display: flex;
+}
+.esti_content2{
+    grid-area: pay;
+    display: flex;
+}
+.esti_content3{
+    grid-area: sendEate;
+    display: flex;
+}
+.esti_content4{
+    grid-area: hopeDate;
+    display: flex;
+}
+.esti_content5{
+    grid-area: coment;
+    display: flex;
+}
+#content1, #content3, #content5, #content7, #content9{
+    margin-right: 20px;
+    font-weight: bold;
+    color: #888;
+    width: 100px;
+}
+#content10{
+    width: 600px;
+    overflow: auto;
+}
+
+/* 보낸 요청 박스 : 아이콘 */
+.estiBox_Icon{
+    grid-area: estiBox_Icon;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 50px;
+    cursor: pointer;
+    color: #888;
+}
+.estiBox i.fa-paper-plane{
+    margin-right: 30px;
+}
+
+/* estiBox에 hover 시 변경 */
+.estiBoxWrap:hover {
+    border: 3px solid #00B0FA;
+}
+.estiBox:hover .estiBox_Title {
+    background-color: #00B0FA;
+    color: white;
+}
+.estiBox:hover #content1,
+.estiBox:hover #content3,
+.estiBox:hover #content5,
+.estiBox:hover #content7,
+.estiBox:hover #content9 {
+    color: #0056b3;
+}
+.estiBox:hover #content2,
+.estiBox:hover #content4,
+.estiBox:hover #content6,
+.estiBox:hover #content8,
+.estiBox:hover #content10 {
+    color: #000;
+}
+.estiBox:hover i.fa-paper-plane,
+.estiBox:hover i.fa-trash-can {
+    color: #00B0FA;
+}
+/* 아이콘 요소 직접 hover 시 색상 변경 */
+.estiBox .fa-paper-plane:hover,
+.estiBox .fa-trash-can:hover {
+    color: #0056b3 !important;
+}
+
+
+/* 좌측 사이드 메뉴 */
+.esti_section1.esti_sideMenu{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 200px;  
+    list-style: none;
+    font-size: 1.5em;
+}
+/* 링크버튼 */
+.esti_section1.esti_sideMenu .sendEsti ,
+.esti_section1.esti_sideMenu .receiveEsti {
+    padding-right: 50px;  
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+.esti_section1.esti_sideMenu .sendEsti:hover ,
+.esti_section1.esti_sideMenu .receiveEsti:hover {
+    text-decoration: underline;
+
+}
+
+/* 보낸요청 */
+.esti_section1.esti_sideMenu .sendEsti a {
+    text-decoration: none;
+    color: #000;
+}
+/* 받은 요청 */
+.esti_section1.esti_sideMenu .receiveEsti a{
+    font-weight: bold;
+    color: #0056b3;
+    text-decoration: none;
+}
+/* 페이지 표시 아이콘 */
+.fa-location-arrow{
+    margin-right: 5px;
+}

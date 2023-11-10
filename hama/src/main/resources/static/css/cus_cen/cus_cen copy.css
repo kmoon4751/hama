@@ -1,0 +1,197 @@
+div{
+    /* outline:1px solid red ; */
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+body{
+    margin:0;
+    margin-top:100px;
+}
+li{
+    list-style:none;
+}
+.hidden{
+    display: none;
+}
+
+.cus_center_title {
+display:flex;
+justify-content:center;
+align-items: center;
+}
+
+#h3_title{
+display:flex;
+justify-content:right;
+padding: 80px 50px 20px 0;
+border-bottom: 1px solid #00B0FA;
+font-size: 2.2rem;
+width: 954px;
+color: #0056b3;
+}
+
+/* 큰 부모요소 */
+.question_box_Big{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    padding:50px 0px;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+/* 중간 부모요소 */
+.question_box_Med{
+    position:relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+/* 작은 부모요소 */
+.question_box_small{
+    display: flex;
+    width: 1024px;
+}
+/* 왼쪽 박스 고정 */
+.question_box_Med
+.question_box_small_left{
+    display: flex;
+    width: 512px;
+    height: 600px;
+    justify-content: center;
+}
+/* 왼쪽 박스 크기조절, 보더 색깔*/
+.question_box_Med
+.question_box_small_left
+.question_box_small_left_sub{
+    width: 90%;
+    border: 2px solid #ccc;
+    border-radius:10px;
+    padding-top: 40px;
+}
+
+/* 이미지 정렬 */
+.question_box_Med
+.question_box_small_left
+.question_box_title_img{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+/* 오른쪽 박스 고정 */
+.question_box_Med
+.question_box_small_right{
+    display: flex;
+
+    justify-content: center;
+}
+/*  오른쪽 박스 크기조절, 보더 색깔
+    세로 정렬*/
+.question_box_Med
+.question_box_small_right
+.question_box_small_right_sub{
+     width: 512px;
+    height: 600px;
+    border: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    border-radius : 10px;
+    background-color:gold;
+}
+
+/* 텍스트 */
+.question_box_small
+.question_text{
+    margin: 6px;
+    padding-left: 10px;
+    color: grey;
+}
+/* 오른쪽의 텍스트 박스 */
+.question_box_Med
+.question_box_small_right
+.question_box_small_right_sub
+.question_view_border{
+    /* padding-top: 14px; */
+}
+/* 밑 테두리 색깔 */
+.question_box_Med
+.question_box_small_right
+.question_box_small_right_sub
+.question_view_border
+.question_border_color{
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 15px;
+}
+
+/* 박스 안 타이틀 */
+h2{
+font-weight: bolder;
+color:#000;
+}
+.question_box_Med
+.question_box_small_right
+.question_box_small_right_sub
+.question_view_border
+.question_reference_mark{
+    margin-bottom: 20px;
+}
+/* 모달창 설정 */
+#first_modal{
+    padding: 20px;
+    min-width: 500px;
+    max-width: auto;
+    min-height: 200px;
+    max-height: auto;
+    border-radius: 10px;
+    border-style: none;
+    top:30vh;
+    left:35vw;
+}
+
+
+#first_modal
+.modal_container{
+    display: block;
+}
+/* 폰트 사이즈 */
+#modalContent{
+    font-size: larger;
+}
+#modalText{
+    font-size: medium;
+    width: 100%;
+    padding: 16px 10px 16px 10px;
+    max-height:80px;
+    border-radius: 10px;
+    margin-right:25px;
+    background-color:#F1FBF6;
+}
+/* 아이콘 */
+#first_modal
+.modal_container
+.modal_xMark{
+    display: flex;
+    justify-content: flex-end;
+    font-size:1.2em;
+    cursor: pointer;
+}
+
+#first_modal
+.modal_container
+.modal_Content{
+    display: flex;
+    margin-top: 20px;
+}
+.fa-solid.fa-q{
+    margin-right: 16px;
+}
+
+.fa-solid.fa-a{
+    margin-right: 18px;
+}
+

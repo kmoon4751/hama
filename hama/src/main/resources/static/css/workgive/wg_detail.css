@@ -1,0 +1,179 @@
+
+*{
+    font-family: GowunBatang-Regular;
+    /* outline: 1px solid green; */
+}
+.button {
+    display: inline-block;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 2rem;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00B0FA;
+}
+.button:hover{
+    background-color: rgb(0, 176, 250);
+    color: white;
+  }
+.colorbutton {
+    background-color: rgb(0, 176, 250);
+    color: white;
+}
+.borderbutton{
+    background-color: white;
+    color: rgb(0, 176, 250);
+    
+}
+/* body{ } */
+.container{
+    display: grid;
+    grid-template-areas: ". main .";
+    grid-template-columns: 1fr 824px 1fr;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+}
+.main{
+    grid-area: main;
+    position: relative;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 2px solid #00B0FA;
+    padding: 30px 15px;
+    margin-top:100px;
+    /* box-shadow: 2px 2px 2px 2px rgba(0,0,0,.125); */
+    
+}
+.main > * {
+    margin-top: 40px;
+}
+.main .title{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.main .title .title_text h1{
+    padding-left: 50px;
+    margin-bottom: 40px;
+}
+.select_category{
+    padding-left: 50px;
+}
+.main .title .title_pic{
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+.main .box1{
+    margin-top: 50px;
+}
+/* .main .box1 .location .local_title{
+    width: 510px;
+} */
+.main .box1 .location .areamodal{
+    padding: 30px 20px 20px;
+}
+.main .box1 .location .areamodal h2 {
+    padding-left: 20px;
+}
+.locLst{
+    margin-top: 40px;
+}
+#area_subcat{
+    padding: 30px;
+}
+#area_subcat h3{
+    padding-left: 20px;
+}
+.main .box3{
+    margin-top: 40px;
+}
+/* .main .box3 .title{
+    width: 510px;
+    margin-right: 100px;
+} */
+.main .box3 .box{
+    margin-top: 20px;
+}        
+.main .box4{
+    display: flex;
+    margin-top: 40px;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+}
+.main .box4 button{
+    width: 422px;
+    height: 80px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.chat-text-box {
+    width: 400px; /* 너비를 100%로 설정 */
+    height: 150px;
+    padding: 10px; /* 안쪽 여백 설정 */
+    border: 1px solid #ccc; /* 테두리 스타일 및 색상 설정 */
+    border-radius: 5px; /* 테두리의 둥글기 설정 */
+    outline: none; /* 포커스 효과 제거 */
+    font-size: 1rem; /* 폰트 크기 설정 */
+    color: #333; /* 글자 색상 설정 */
+    box-shadow: 0px 0px 5px #888; /* 그림자 효과 추가 */
+    resize: none; /* 크기 조정 비활성화 */
+    overflow-y: hidden; /* 줄넘김 발생 시 수직 스크롤을 숨김 */
+    font-family: 'Arial';
+}
+
+/* 포커스 효과 스타일 */
+.chat-text-box:focus {
+    border-color: #3498db; /* 포커스 시 테두리 색상 변경 */
+    box-shadow: 0px 0px 8px #3498db; /* 포커스 시 그림자 효과 변경 */
+}
+.main2,
+.location,
+.box3{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.radios{
+    margin-top: 30px;
+}
+.check{
+    margin-bottom: 10px;
+}
+.radios .tag{
+    margin: 10px;
+}
+.maples,
+.maple{
+    width: 15px;
+    height: 15px;
+}
+.h3{
+    display: flex;
+    font-size: 1.2rem;
+    background-color: #00B0FA;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    width: 422px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+}
+.button:disabled{
+    background-color: #ccc;
+    color: white;
+    border: 1px solid #ccc;
+    cursor: default;
+}
+[type="radio"]:disabled {
+    background-color: #000;
+    box-shadow: none;
+  }

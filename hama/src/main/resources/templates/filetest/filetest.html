@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+</head>
+<body>
+<form action="" enctype="multipart/form-data" method="post" th:object="${fileTest}">
+  <div><label th:for="*{attachFiles}">설명첨부</label><input type="file" name="" id="" th:field="*{attachFiles}" multiple></div>
+  <div><lable th:for="*{imageFiles}">이미지첨부</lable><input type="file" name="" id="" th:field="*{imageFiles}" multiple></div>
+<input type="submit" value="등록">
+</form>
+  <img src="D:\attach\F010302\1826c889-ac22-4153-a73e-29194cf3e403.jpg" alt="" width="70px" height="80px">
+</body>
+</html>

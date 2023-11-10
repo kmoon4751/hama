@@ -1,0 +1,177 @@
+
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+body{
+    margin:0;
+    margin-top:100px;
+}
+li{
+    list-style:none;
+}
+.hidden{
+    display: none;
+}
+
+/* 페이지 타이틀 : 고객센터 + 밑줄 */
+.cus_center_title {
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+#h3_title{
+    display:flex;
+    justify-content:right;
+    padding: 80px 50px 20px 0;
+    border-bottom: 1px solid #00B0FA;
+    font-size: 2.2rem;
+    width: 954px;
+    color: #0056b3;
+}
+
+/* 페이지 메인 구간 */
+.cus_center_main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    height:710px;
+}
+
+/* 서브 타이틀 영역 : (자묻질+요청,견적+고객기능+하마찾기) */
+.subTitleWrap{
+    display: flex;
+    justify-content: center;
+}
+
+/*서브 타이틀 버튼 모음*/
+.subTitleList {
+    margin-top:30px;
+    width:800px;
+    display:flex;
+    justify-content: space-between;
+}
+
+.subTitle_btn1,
+.subTitle_btn2,
+.subTitle_btn3,
+.subTitle_btn4{
+    background-color: #0056b3;
+    color:#fff;
+    width:100px;
+    height:160px;
+    text-align: right;
+    padding: 10px;
+    margin: 70px 0;
+    cursor:pointer;
+    font-size:20px;
+    line-height: 1.2;
+}
+
+/**/
+.STL_txt_qst_all{
+    margin-bottom:100px;
+}
+
+/* 좌측 서브타이틀 + 질문리스트 */
+.forHidden_1,
+.forHidden_2,
+.forHidden_3,
+.forHidden_4{
+    display:none;
+    height:250px;
+}
+.STL_txt_qst{
+    display: flex;
+    width: 800px;
+    margin-bottom:10px;
+}
+
+/* 좌측 서브타이틀 */
+.subTitleLeft_txt{
+width:90px;
+    height: auto;
+    text-align: right;
+    border-right: 10px solid #0056b3;
+    padding:0 10px;
+    margin-right:30px;
+    color:#0056b3;
+    font-size: 25px;
+    line-height: 1.3;
+}
+
+/* 질문 리스트 */
+.subTitle_1_list,
+.subTitle_2_list,
+.subTitle_3_list,
+.subTitle_4_list{
+    width:600px;
+    color:grey;
+    font-size: 20px;
+}
+.question_text:hover{
+    color: #000;
+}
+.question_text{
+    margin-bottom:20px;
+}
+
+/* 모달창 설정 */
+#first_modal{
+    padding: 20px;
+    min-width: 600px;
+    max-width: auto;
+    min-height: 200px;
+    max-height: auto;
+    border-radius: 10px;
+    border-style: none;
+    top:40vh;
+    left:40vw;
+}
+
+#first_modal
+.modal_container{
+    display: block;
+}
+/* 폰트 사이즈 */
+#modalContent{
+    font-size: larger;
+}
+#modalText{
+    font-size: medium;
+    width: 100%;
+    padding: 16px 10px;
+    max-height:80px;
+    border-radius: 10px;
+    margin-right:25px;
+    background-color:#F1FBF6;
+}
+
+/* 아이콘 */
+#first_modal
+.modal_container
+.modal_xMark{
+    display: flex;
+    justify-content: flex-end;
+    font-size:20px;
+    cursor: pointer;
+}
+
+#first_modal
+.modal_container
+.modal_Content{
+    display: flex;
+    margin-top: 20px;
+}
+.fa-solid.fa-q{
+    margin-right: 16px;
+}
+
+.fa-solid.fa-a{
+    margin-right: 16px;
+}
+

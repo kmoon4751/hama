@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/header}">
+<!--only_footer, header-->
+<th:block layout:fragment="css">
+    <link rel="stylesheet" th:href="@{/css/workgive/wg_detail.css}">
+    <link rel="stylesheet" th:href="@{/css/workgive/calender.css}">
+    <link rel="stylesheet" th:href="@{/css/cateBtn/cateBtn.css}">
+</th:block>
+<th:block layout:fragment="script">
+  <script src="https://kit.fontawesome.com/ba16334cfd.js" crossorigin="anonymous"></script>
+  <script th:src="@{/js/calender.js}"></script>
+</th:block>
+
+<div layout:fragment="content">
+  <body>
+  <div class="container">
+
+    <div class="main">
+      <div class="title">
+        <div class="title_text"><h1>세부사항</h1>
+        </div>
+        <div class="title_pic">
+          <div class="select_category"></div>
+        </div>
+      </div>
+      <div class="box1">
+        <div class="location">
+          <div class="local_title"><h3 class="h3">희망하는 지역을 선택해주세요.</h3></div>
+          <!--  -->
+          <div class="container__category" id="container__category">
+            <div class="layer_wrap__category"></div>
+            <div class="category-container">
+              <!-- 서비스 카테고리 모달 -->
+              <div id="serviceModal" class="servicemodal" style="display: none;">
+                <!-- 모달 내용 추가 -->
+              </div>
+              <div class="category-container">
+                <div class="area_category" id="areaButton">지역을 선택해주세요<i class="fas fa-chevron-down"></i></div>
+                <!-- 지역 카테고리 모달 -->
+                <div id="areaModal" class="areamodal" style="display: none;">
+                  <!-- 모달 내용 추가 -->
+                  <h2>지역 카테고리</h2>
+                  <li id="busan">부산광역시</li>
+                  <li id="ulsan">울산광역시</li>
+                  <li id="gyeongnam">경상남도</li>
+                  <li id="seoul">서울특별시</li>
+                  <li id="daegu">대구광역시</li>
+                  <li id="gwangju">광주광역시</li>
+                  <li id="jeju">제주특별자치도</li>
+                </div>
+                <!-- 세부 카테고리를 표시할 요소 추가 -->
+                <div id="area_subcat" style="display: none;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 달력부분 -->
+      <div class="main2">
+        <!-- 체크박스 추가 -->
+
+        <table class="Calendar">
+          <div class="checked">
+            <div class="calender_title">
+              <h3 class="h3">희망 날짜를 선택해주세요</h3></div>
+            <div class="radios">
+              <div class="tag">
+                <label>
+                  <input type="radio" name="radio" class="check maples"  onClick="resetCalendar()" checked> 협의 가능해요.
+                </label>
+              </div>
+              <div class="tag">
+                <label>
+                  <input type="radio" name="radio" class="check maples"  onClick="resetCalendar()"> 가능한 빨리 하고싶어요.
+                </label>
+              </div>
+              <div class="tag">
+                <label>
+                  <input type="radio" name="radio" class="check maple" disabled>
+                  원하는 날짜가 있어요.
+                </label>
+              </div>
+            </div>
+          </div>
+          <thead>
+          <tr>
+            <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
+            <td colspan="5">
+              <span id="calYear"></span>년
+              <span id="calMonth"></span>월
+            </td>
+            <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
+          </tr>
+          <tr>
+            <td>일</td>
+            <td>월</td>
+            <td>화</td>
+            <td>수</td>
+            <td>목</td>
+            <td>금</td>
+            <td>토</td>
+          </tr>
+          </thead>
+
+          <tbody class="datefind">
+          </tbody>
+        </table>
+      </div>
+
+      <div class="box3">
+        <h3 class="h3">하마에게 전달하고 싶은 내용을 적어주세요.</h3>
+        <div class="box">
+          <textarea class="chat-text-box" placeholder="하마가 꼭 참고할 내용을 적어주세요. (최대 100자)" spellcheck="false"></textarea>
+        </div>
+      </div>
+      <div>
+        <form action="" method="post" th:object="${fetchForm}">
+        <input type="hidden" name="category" id="category" value="">
+        <input type="hidden" name="location" id="location" value="">
+        <input type="hidden" name="text" id="text" value="">
+        <input type="hidden" name="date" id="date" value="">
+      <div class="box4">
+        <button type="submit" class="button borderbutton" id="finishBtn"
+                onclick="alert('등록이 완료되었습니다.')" disabled>견적요청</button>
+      </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <script src="/js/workgivedetail.js"></script>
+  <script src="/js/cateBtn.js"></script>
+  </body>
+</div>
+</html>

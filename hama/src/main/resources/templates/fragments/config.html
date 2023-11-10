@@ -1,0 +1,26 @@
+<html lagn="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<th:block th:fragment="configFragment">
+
+  <link rel="stylesheet" th:href="@{/css/Public/header.css}" >
+  <link rel="stylesheet" th:href="@{/css/Public/footer.css}" >
+  <link rel="stylesheet" th:href="@{/css/Public/footer_font.css}" >
+  <link rel="stylesheet" th:href="@{/css/Public/color.css}" >
+  <link rel="stylesheet" th:href="@{/css/Public/font.css}">
+<!--  <link rel="stylesheet" th:href="@{/css/Public/common.css}" >-->
+<!--  <link rel="stylesheet" th:href="@{/css/Public/font.css}" >-->
+
+
+  <!-- Content Page의 CSS fragment 삽입 -->
+  <th:block layout:fragment="css">
+
+  </th:block>
+
+  <!-- Content Page의 script fragment 삽입 -->
+  <th:block layout:fragment="script"></th:block>
+
+</th:block>
+</html>
+        
