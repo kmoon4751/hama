@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -33,6 +34,12 @@ public class CommunitySVCImpl implements CommunitySVC {
   @Override
   public List<Community> getheringAll() {
     return communityDAO.getheringAll();
+  }
+
+  //게시글 상세 조회
+  @Override
+  public Optional<Community> viewById(Long comu_post_id) {
+    return communityDAO.viewById(comu_post_id);
   }
 
   //글 삭제

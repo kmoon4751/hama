@@ -26,18 +26,19 @@ getquestion();
         data.forEach(data => {
         let postInfo = document.createElement('div');
         postInfo.innerHTML =`
-                        <a href="#">
+                        <a href="/community/view/${data.comu_post_id}">
                             <div class="content_commu">
-                                <div class="content_title">${data.title}</div>
-                                <div class="content_left">
-                                    <div class="content_text">${data.content}</div>
-                                    <div class="content_cnt">
-                                        <div class="content_date">${data.udate}</div>
-                                    </div>
-                                </div>
-                            </div>
+                               <div class="content_title">${data.title}</div>
+                               <div class="content_left">
+                                   <div class="content_text">${data.content}</div>
+                                   <div class="content_cnt">
+                                       <div class="content_date">${data.udate}</div>
+                                   </div>
+                               </div>
+                           </div>
                         </a>
                     `;
             contentContainer.append(postInfo);
-        })
+        });
+
     }

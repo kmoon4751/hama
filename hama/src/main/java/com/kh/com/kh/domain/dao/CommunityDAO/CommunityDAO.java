@@ -19,6 +19,9 @@ public interface CommunityDAO {
   //모여봐요 게시글 목록
   List<Community> getheringAll();
 
+  //게시글 상세 조회
+  Optional<Community> viewById(Long comu_post_id);
+
   //게시글 수정
   int updateById(Long member_id, Community community);
 

@@ -15,7 +15,6 @@
         <div class="containerWrap_commu">
             <!-- 사이드 메뉴 -->
             <div class="commu_side">
-
                 <!--                <a href="test.html">-->
 <!--            <a href="#"><div class="side side_write"><a th:href="@{/community/question/post}">글작성</a></div></a>-->
                 <!--                </a>-->
@@ -56,8 +55,16 @@
                     </div>
                 </div>
                 <!-- 이용자 게시글 목록 -->
-                <div class="commu_content" id="content-container"></div>
-                <div>디테일</div>
+                <div class="commu_content" id="content-container">
+                    <form action="/view/{comu_post_id}" method="get">
+                        <div>
+                            <h1 th:text="${community.title}"></h1>
+                        </div>
+                        <div>
+                            <p th:text="${community.content}"></p>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

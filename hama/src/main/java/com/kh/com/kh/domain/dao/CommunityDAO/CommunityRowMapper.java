@@ -6,7 +6,7 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class MyRowMapper implements RowMapper<Community> {
+public class CommunityRowMapper implements RowMapper<Community> {
 
   @Override
   public Community mapRow(ResultSet rs, int rowNum) throws SQLException {

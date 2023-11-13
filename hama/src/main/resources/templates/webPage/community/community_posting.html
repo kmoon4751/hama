@@ -46,33 +46,34 @@
             });
           </script>
         </div>
+
         <div class="main_commu">
           <!-- 커뮤니티 페이지 제목 -->
           <div class="commu_title">
             <div id="title1">
               <h2>글 작성</h2>
               <div id="title2"><br>글을 작성해보세용
-              </div>
             </div>
           </div>
+        </div>
     <div class="commu_content" id="content-container" >
-    <form action="" method="post" th:object="${postForm}">
-      <label for="comu_gubun">게시판을 선택해주세요 : </label>
-      <select name="comu_gubun" id="comu_gubun">
-        <option value="궁금해요">궁금해요</option>
-        <option value="얼마예요">얼마예요</option>
-        <option value="모여봐요">모여봐요</option>
-      </select>
-      <div>
-        <input type="text" id="post_title" name="title" placeholder="제목" >
-      </div>
-      <div>
-        <input type="text" id="post_content" name="content" placeholder="본문을 입력해주세요">
-      </div>
-      <div>
-        <input type="submit" value="등록">
-      </div>
-    </form>
+      <form action="" method="post" th:object="${postForm}">
+          <label for="comu_gubun">게시판을 선택해주세요 : </label>
+            <select name="comu_gubun" id="comu_gubun">
+              <option value="궁금해요">궁금해요</option>
+              <option value="얼마예요">얼마예요</option>
+              <option value="모여봐요">모여봐요</option>
+            </select>
+            <div>
+              <input type="text" id="post_title" name="title" placeholder="제목">
+            </div>
+            <div>
+              <input type="text" id="post_content" name="content" placeholder="본문을 입력해주세요">
+            </div>
+            <div>
+              <input type="submit" value="등록">
+            </div>
+      </form>
   </body>
     </div>
 </html>

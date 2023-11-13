@@ -3,6 +3,7 @@ package com.kh.com.kh.domain.svc.CommunitySVC;
 import com.kh.com.kh.domain.dao.entity.Community;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CommunitySVC {
 
@@ -17,6 +18,9 @@ public interface CommunitySVC {
 
   //모여봐요 게시글 목록
   List<Community> getheringAll();
+
+  //게시글 상세 조회
+  Optional<Community> viewById(Long comu_post_id);
 
   int deleteById(Long comu_post_id);
 

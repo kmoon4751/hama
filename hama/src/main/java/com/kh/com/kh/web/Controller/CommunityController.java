@@ -1,6 +1,7 @@
 package com.kh.com.kh.web.Controller;
 
 import com.kh.com.kh.domain.dao.entity.Community;
+import com.kh.com.kh.domain.svc.ApiResponse;
 import com.kh.com.kh.domain.svc.CommunitySVC.CommunitySVC;
 import com.kh.com.kh.domain.svc.MemberSVC.MemberSVC;
 import com.kh.com.kh.web.form.communityForm.postForm;
@@ -10,13 +11,11 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Controller
@@ -82,13 +81,13 @@ public class CommunityController {
   //모든 게시글 조회
   @GetMapping("/question/all")
   @ResponseBody
-  public com.kh.com.kh.domain.svc.AedSVC.ApiResponse<List<Community>> questionAll(){
+  public ApiResponse<List<Community>> questionAll(){
     List<Community> communities = communitySVC.questionAll();
-    com.kh.com.kh.domain.svc.AedSVC.ApiResponse<List<Community>> result = null;
+    ApiResponse<List<Community>> result = null;
     if(communities.isEmpty()){
-      result = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("01","실패",null);
+      result = ApiResponse.createApiResponse("01","실패",null);
     }else{
-      result = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("00", "성공", communities);
+      result = ApiResponse.createApiResponse("00", "성공", communities);
     }
     return result;
   }
@@ -102,13 +101,13 @@ public class CommunityController {
   }
   @GetMapping("/howmuch/all")
   @ResponseBody
-  public com.kh.com.kh.domain.svc.AedSVC.ApiResponse<List<Community>> howMuchAll(){
+  public ApiResponse<List<Community>> howMuchAll(){
     List<Community> communities = communitySVC.howMuchAll();
-    com.kh.com.kh.domain.svc.AedSVC.ApiResponse<List<Community>> result = null;
+    ApiResponse<List<Community>> result = null;
     if(communities.isEmpty()){
-      result = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("01","실패",null);
+      result = ApiResponse.createApiResponse("01","실패",null);
     }else{
-      result = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("00", "성공", communities);
+      result = ApiResponse.createApiResponse("00", "성공", communities);
     }
     return result;
   }
@@ -122,16 +121,64 @@ public class CommunityController {
   }
   @GetMapping("/gethering/all")
   @ResponseBody
-  public com.kh.com.kh.domain.svc.AedSVC.ApiResponse<List<Community>> getheringAll(){
+  public ApiResponse<List<Community>> getheringAll(){
     List<Community> communities = communitySVC.getheringAll();
-    com.kh.com.kh.domain.svc.AedSVC.ApiResponse<List<Community>> result = null;
+    ApiResponse<List<Community>> result = null;
     if(communities.isEmpty()){
-      result = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("01","실패",null);
+      result = ApiResponse.createApiResponse("01","실패",null);
     }else{
-      result = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("00", "성공", communities);
+      result = ApiResponse.createApiResponse("00", "성공", communities);
     }
     return result;
   }
+
+    //게시글 상세조회
+    @GetMapping("/view/{comu_post_id}")
+    public String communityview( Model model, @PathVariable Long comu_post_id){
+      Optional<Community> community = communitySVC.viewById(comu_post_id);
+      if (community.isPresent()) {
+        model.addAttribute("community", community.get());
+        return "webPage/community/community_detail";
+      } else {
+        return "error/not_found";
+      }
+    }
+
+
+//  public  String viewById(
+//    @PathVariable("comu_post_id") Long comu_post_id,
+//    Model model){
+//    //
+//    Optional<Community> optionalCommunity = communitySVC.viewById(comu_post_id);
+//    Community community = optionalCommunity.orElseThrow(); //값있으면 가져오고 없으면 말고
+//
+//    comu_postDetailForm comu_postDetailForm = new comu_postDetailForm();
+//    comu_postDetailForm.setComu_post_id(community.getComu_post_id());
+//    comu_postDetailForm.setTitle(community.getTitle());
+//    comu_postDetailForm.setContent(community.getContent());
+//
+//    model.addAttribute("comu_postDetailForm", comu_postDetailForm);
+//    return "webPage/community/community_detail";
+//  }
+
+
+//  @ResponseBody
+//  @GetMapping("/{comu_post_id}")
+//  public com.kh.com.kh.domain.svc.AedSVC.ApiResponse<Community> viewById(@PathVariable("comu_post_id") Long comu_post_id){
+//    com.kh.com.kh.domain.svc.AedSVC.ApiResponse<Community> response = null;
+//    Optional<Community> optionalCommunity = communitySVC.viewById(comu_post_id);
+//
+//    Community findIdforView = null;
+//    if(optionalCommunity.isPresent()){
+//      findIdforView = optionalCommunity.get();
+//      response = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("00", "성공", findIdforView);
+//    }else{
+//      response = com.kh.com.kh.domain.svc.AedSVC.ApiResponse.createApiResponse("01", "실패", null);
+//    }
+//    return response;
+//  }
+
+
 
   //글 삭제
 //  @ResponseBody

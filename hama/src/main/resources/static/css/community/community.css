@@ -1,7 +1,7 @@
  * {
     margin: 0;
     padding: 0;
-   outline: 1px solid red;
+   /* outline: 1px solid red; */
  }
  .container_commu{
    display: grid;
@@ -23,7 +23,6 @@
    width: 1000PX;
    height: 100px;
 }
-
  /* 페이지 제목 : 커뮤니티 */
  .commu_title {
     width: 1000PX;

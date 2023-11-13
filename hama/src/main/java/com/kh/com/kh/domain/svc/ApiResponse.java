@@ -1,4 +1,4 @@
-package com.kh.com.kh.domain.svc.AedSVC;
+package com.kh.com.kh.domain.svc;
 
 import lombok.Getter;
 import lombok.ToString;

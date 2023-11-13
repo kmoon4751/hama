@@ -1,27 +1,19 @@
 package com.kh.com.kh.web.Controller;
 
-import com.kh.com.kh.domain.dao.entity.Member;
 import com.kh.com.kh.domain.svc.FileSVC.FileSVC;
-import com.kh.com.kh.domain.svc.MemberSVC.MemberSVC;
 import com.kh.com.kh.domain.svc.MyPageSVC.MyPageSVC;
 import com.kh.com.kh.web.form.FileForm;
 import com.kh.com.kh.web.form.memberForm.SessionForm;
 import com.kh.com.kh.web.form.userupdateForm.UpdateCKForm;
 import com.kh.com.kh.web.form.userupdateForm.UpdateForm;
-import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.time.LocalDateTime;
-import java.util.List;
 
 @Slf4j
 @Controller

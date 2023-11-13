@@ -3,6 +3,7 @@ package com.kh.com.kh.domain.dao.CommunityDAO;
 import com.kh.com.kh.domain.dao.entity.Community;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -94,6 +95,23 @@ public class CommunityDAOImpl implements CommunityDAO {
     return list;
   }
 
+  //게시글 상세 조회
+  @Override
+  public Optional<Community> viewById(Long comu_post_id) {
+
+    StringBuffer sql = new StringBuffer();
+    sql.append(" select comu_post_id, title, content from Community where comu_post_id = :comu_post_id ");
+
+    try {
+      Map<String, Long> param = Map.of("comu_post_id", comu_post_id);
+
+      Community community = template.queryForObject(sql.toString(), param, BeanPropertyRowMapper.newInstance(Community.class));
+      return Optional.of(community);
+    } catch (EmptyResultDataAccessException e) {
+      return Optional.empty();
+    }
+  }
+
   //게시글 수정
   @Override
   public int updateById(Long member_id, Community community) {
@@ -116,5 +134,3 @@ public class CommunityDAOImpl implements CommunityDAO {
     return Optional.empty();
   }
 }
-
-//RowMapper = 다수의 객체를 List 형식으로 담아준다.
