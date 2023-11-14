@@ -134,7 +134,7 @@ public class CommunityController {
 
     //게시글 상세조회
     @GetMapping("/view/{comu_post_id}")
-    public String communityview( Model model, @PathVariable Long comu_post_id){
+    public String viewById( Model model, @PathVariable Long comu_post_id){
       Optional<Community> community = communitySVC.viewById(comu_post_id);
       if (community.isPresent()) {
         model.addAttribute("community", community.get());
@@ -145,6 +145,22 @@ public class CommunityController {
     }
 
 
+  //  글 삭제
+  @ResponseBody
+  @DeleteMapping("/question/{comu_post_id}")
+  public ApiResponse<String> delete(@PathVariable("comu_post_id") Long comu_post_id){
+    ApiResponse<String> result = null;
+
+    int row = communitySVC.deleteById(comu_post_id);
+    if(row == 1){
+      result = ApiResponse.createApiResponse("00", "성공", null);
+    }else {
+      result = ApiResponse.createApiResponse("01","실패", null);
+    }
+    return result;
+  }
+
+
 //  public  String viewById(
 //    @PathVariable("comu_post_id") Long comu_post_id,
 //    Model model){
@@ -153,6 +169,7 @@ public class CommunityController {
 //    Community community = optionalCommunity.orElseThrow(); //값있으면 가져오고 없으면 말고
 //
 //    comu_postDetailForm comu_postDetailForm = new comu_postDetailForm();
+
 //    comu_postDetailForm.setComu_post_id(community.getComu_post_id());
 //    comu_postDetailForm.setTitle(community.getTitle());
 //    comu_postDetailForm.setContent(community.getContent());
@@ -179,19 +196,4 @@ public class CommunityController {
 //  }
 
 
-
-  //글 삭제
-//  @ResponseBody
-//  @DeleteMapping("/gethering/{comu_post_id}")
-//  public ApiResponse<String> delete(@PathVariable("comu_post_id") Long comu_post_id){
-//    ApiResponse<String> result = null;
-//
-//    int row = communitySVC.deleteById(comu_post_id);
-//    if(row == 1){
-//      result = ApiResponse.createApiResponse("00", "성공", null);
-//    }else {
-//      result = ApiResponse.createApiResponse("01","실패", null);
-//    }
-//    return result;
-//  }
 }

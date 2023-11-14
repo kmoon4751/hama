@@ -24,7 +24,6 @@
  .commu_title {
     width: 1000PX;
     height:100px;
-    margin-top : 150px
  }
 
  /* 페이지 전체 */
@@ -52,6 +51,7 @@
    /* background-color: gold; */
 
  }
+
  .commu_content a {
     text-decoration: none;
     color: #000;
