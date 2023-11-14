@@ -23,10 +23,10 @@ public interface CommunityDAO {
   Optional<Community> viewById(Long comu_post_id);
 
   //게시글 수정
-  int updateById(Long member_id, Community community);
+  int updateById(Long comu_post_id, Community community);
 
-  //게시글 삭제
-  int deleteById(Long comu_post_id);
+//  게시글 삭제
+  Community deleteById(Long comu_post_id);
 
   //게시글 검색
   Optional<Community> findByTitle(String title);

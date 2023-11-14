@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
@@ -114,18 +116,33 @@ public class CommunityDAOImpl implements CommunityDAO {
 
   //게시글 수정
   @Override
-  public int updateById(Long member_id, Community community) {
-    return 0;
+  public int updateById(Long comu_post_id, Community community) {
+    StringBuffer sql = new StringBuffer();
+    sql.append("update community ");
+    sql.append("   set title = :title, content = :content ");
+    sql.append(" where comu_post_id = :comu_post_id ");
+
+    SqlParameterSource param = new MapSqlParameterSource()
+        .addValue("title", community.getTitle())
+        .addValue("content", community.getContent())
+        .addValue("comu_post_id",comu_post_id);
+
+    int updatedRows = template.update(sql.toString(), param);
+    return updatedRows;
   }
+
 
   //게시글 삭제
   @Override
-  public int deleteById(Long comu_post_id) {
-    String sql = "delete from community where comu_post_id = :comu_post_id ";
+  public Community deleteById(Long comu_post_id) {
+    String sql = " delete from community where comu_post_id = :comu_post_id ";
+    String sql2 = "select comu_gubun from community where comu_post_id = :comu_post_id ";
 
-    int deleteRowCnt = template.update(sql, Map.of("comu_post_id", comu_post_id));
-    log.info("delcnt={}",deleteRowCnt);
-    return deleteRowCnt;
+    Map <String,Long> param = Map.of("comu_post_id",comu_post_id);
+    Community community = template.queryForObject(sql2, param, BeanPropertyRowMapper.newInstance(Community.class));
+    int deleteRowCnt = template.update(sql, param);
+
+    return community;
   }
 
   //게시글 검색

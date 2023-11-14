@@ -42,9 +42,15 @@ public class CommunitySVCImpl implements CommunitySVC {
     return communityDAO.viewById(comu_post_id);
   }
 
+  //게시글 수정
+  @Override
+  public int updateById(Long comu_post_id, Community community) {
+    return communityDAO.updateById(comu_post_id, community);
+  }
+
   //글 삭제
   @Override
-  public int deleteById(Long comu_post_id) {
+  public Community deleteById(Long comu_post_id) {
     return communityDAO.deleteById(comu_post_id);
   }
 }

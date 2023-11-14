@@ -138,27 +138,68 @@ public class CommunityController {
       Optional<Community> community = communitySVC.viewById(comu_post_id);
       if (community.isPresent()) {
         model.addAttribute("community", community.get());
+        model.addAttribute("comu_post_id",comu_post_id);
         return "webPage/community/community_detail";
       } else {
         return "error/not_found";
       }
     }
 
+    //수정폼 호출
+    @GetMapping("/edit/{comu_post_id}")
+    public ModelAndView updateById(){
+      ModelAndView mv = new ModelAndView();
+      mv.setViewName("webPage/community/community_modify");
+      return mv;
+    }
+    //수정처리
+    @PostMapping("/edit/{comu_post_id}")
+    public ModelAndView modifyById(@PathVariable Long comu_post_id, Community community){
+
+      ModelAndView mv = new ModelAndView();
+
+      communitySVC.updateById(comu_post_id, community);
+
+      mv.setViewName("webPage/community/community_detail");
+      return mv;
+    }
+
+
+  //삭제
+  @PostMapping("/view/{comu_post_id}")
+  public ModelAndView deleteById(@PathVariable Long comu_post_id){
+    ModelAndView mv = new ModelAndView();
+    Community community = communitySVC.deleteById(comu_post_id);
+
+    String comuGubun = community.getComu_gubun();
+
+    if( "궁금해요".equals(comuGubun) ){
+      mv.setViewName("redirect:/community/question");
+      return mv;
+    }else if( "얼마예요".equals(comuGubun) ){
+      mv.setViewName("redirect:/community/howmuch");
+      return mv;
+    }else{
+      mv.setViewName("redirect:/community/gethering");
+      return mv;
+    }
+  }
+
 
   //  글 삭제
-  @ResponseBody
-  @DeleteMapping("/question/{comu_post_id}")
-  public ApiResponse<String> delete(@PathVariable("comu_post_id") Long comu_post_id){
-    ApiResponse<String> result = null;
-
-    int row = communitySVC.deleteById(comu_post_id);
-    if(row == 1){
-      result = ApiResponse.createApiResponse("00", "성공", null);
-    }else {
-      result = ApiResponse.createApiResponse("01","실패", null);
-    }
-    return result;
-  }
+//  @ResponseBody
+//  @DeleteMapping("/delete/{comu_post_id}")
+//  public ApiResponse<String> delete(@PathVariable("comu_post_id") Long comu_post_id){
+//    ApiResponse<String> result = null;
+//
+//    int row = communitySVC.deleteById(comu_post_id);
+//    if(row == 1){
+//      result = ApiResponse.createApiResponse("00", "성공", null);
+//    }else {
+//      result = ApiResponse.createApiResponse("01","실패", null);
+//    }
+//    return result;
+//  }
 
 
 //  public  String viewById(

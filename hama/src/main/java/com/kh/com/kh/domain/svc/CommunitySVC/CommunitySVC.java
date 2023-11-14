@@ -22,6 +22,10 @@ public interface CommunitySVC {
   //게시글 상세 조회
   Optional<Community> viewById(Long comu_post_id);
 
-  int deleteById(Long comu_post_id);
+  //게시글 수정
+  int updateById(Long comu_post_id, Community community);
+
+  //게시글 삭제
+  Community deleteById(Long comu_post_id);
 
 }
