@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 @Valid
-public class postForm {
+public class PostForm {
   private Long comu_post_id;
 
   @NotBlank(message = "제목을 입력해주세요")

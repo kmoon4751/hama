@@ -9,8 +9,8 @@ drop sequence community_comu_post_id_seq;
 create table community (
     comu_post_id        number(10),                         -- 게시글 아이디(pk)
     comu_gubun     	varchar2(20),                       -- '궁금'/'얼마'/'모여'
-    title               varchar2(100)not null,              -- 글 제목
-    content             varchar2(1000)not null,             -- 글 본문
+    title               varchar2(1000)not null,              -- 글 제목
+    content             varchar2(4000)not null,             -- 글 본문
     member_id           number(10),                         -- 올린멤버아이디 /fk
     area                varchar2(40),                       -- 지역
     board_pic            blob,                              --게시판 사진

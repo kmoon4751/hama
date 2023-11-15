@@ -6,7 +6,7 @@
 <!--only_footer, beforHeader afterHeader-->
 
 <th:block layout:fragment="css">
-    <link rel="stylesheet" th:href="@{/css/community/community.css}">
+    <link rel="stylesheet" th:href="@{/css/community/community_detail.css}">
 </th:block>
 
 <div layout:fragment="content">
@@ -69,6 +69,11 @@
                         <div>
                             <input type="hidden" th:value="${comu_post_id}">
                             <button type="submit">삭제</button>
+                        </div>
+                    </form>
+                    <form>
+                        <div>
+                            <a th:href="@{/community/modify/{comu_post_id}(comu_post_id=${community.comu_post_id})}">수정</a>
                         </div>
                     </form>
                 </div>

@@ -4,15 +4,18 @@ import com.kh.com.kh.domain.dao.entity.Community;
 import com.kh.com.kh.domain.svc.ApiResponse;
 import com.kh.com.kh.domain.svc.CommunitySVC.CommunitySVC;
 import com.kh.com.kh.domain.svc.MemberSVC.MemberSVC;
-import com.kh.com.kh.web.form.communityForm.postForm;
+import com.kh.com.kh.web.form.communityForm.PostForm;
 import com.kh.com.kh.web.form.memberForm.SessionForm;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,14 +33,14 @@ public class CommunityController {
   @GetMapping("/add/post")
   public String questionSave(Model model){
     log.info("postForm 호출");
-    model.addAttribute("postForm", new postForm());
+    model.addAttribute("postForm", new PostForm());
     return "webPage/community/community_posting";
   }
 
   //글 submit
   @PostMapping("/add/post")
   public ModelAndView questionPost(
-      postForm postForm,
+      PostForm postForm,
       HttpSession session
       ){
     ModelAndView mv = new ModelAndView();
@@ -146,23 +149,58 @@ public class CommunityController {
     }
 
     //수정폼 호출
-    @GetMapping("/edit/{comu_post_id}")
-    public ModelAndView updateById(){
-      ModelAndView mv = new ModelAndView();
-      mv.setViewName("webPage/community/community_modify");
+    //글수정 폼 불러오기
+    @GetMapping("modify/{comu_post_id}")
+    public String communityModify(@PathVariable("comu_post_id") Long comu_post_id, Model model){
+      Optional<Community> communityOptional = communitySVC.viewById(comu_post_id);
+
+      if (communityOptional.isPresent()) {
+        model.addAttribute("community", communityOptional.get());
+        return "webPage/community/community_modify";
+      } else {
+        return "error/not_found";
+      }
+    }
+
+  @PostMapping("/modify/{comu_post_id}")
+  public ModelAndView updateById(
+      @PathVariable("comu_post_id") Long comu_post_id,
+      @Valid @ModelAttribute PostForm postForm,
+      BindingResult bindingResult,
+      RedirectAttributes redirectAttributes
+  ){
+    ModelAndView mv = new ModelAndView();
+
+    redirectAttributes.addAttribute("comu_post_id",comu_post_id);
+
+    if(bindingResult.hasErrors()){
+      mv.setViewName("redirect:/community/view/{comu_post_id}");
       return mv;
     }
-    //수정처리
-    @PostMapping("/edit/{comu_post_id}")
-    public ModelAndView modifyById(@PathVariable Long comu_post_id, Community community){
 
-      ModelAndView mv = new ModelAndView();
+    //DB에서 데이터 가져오기
+    Optional<Community> communityOptional = communitySVC.viewById(comu_post_id);
+
+    if(communityOptional.isPresent()){
+      Community community = communityOptional.get();
+
+      // 수정된 내용 저장
+      community.setTitle(postForm.getTitle());
+      community.setContent(postForm.getContent());
+      community.setComu_gubun(postForm.getComu_gubun());
 
       communitySVC.updateById(comu_post_id, community);
 
-      mv.setViewName("webPage/community/community_detail");
+      log.info("수정내용={}", postForm);
+    }else {
+      mv.setViewName("redirect:/error/not_found");
       return mv;
     }
+
+    log.info("수정내용={}",postForm);
+    mv.setViewName("redirect:/community/view/{comu_post_id}");
+    return mv;
+  }
 
 
   //삭제

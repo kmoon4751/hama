@@ -151,7 +151,7 @@ justify-content: center;
 
  .side:hover a {
     text-decoration: underline;
-    color: #00B0FA;
+    color: #000;
     font-weight: 800;
  }
 
@@ -162,7 +162,7 @@ justify-content: center;
 
  /* 글작성 버튼 */
  .side_write {
-    background-color: #039;
+    background-color: #00B0FA;
     border-radius: 5px;
     color: white;
     text-decoration: none;
@@ -170,7 +170,7 @@ justify-content: center;
  }
 
  .side_write:hover {
-    background-color: #039;
+    background-color: #0056b3;
     text-decoration: none;
  }
 

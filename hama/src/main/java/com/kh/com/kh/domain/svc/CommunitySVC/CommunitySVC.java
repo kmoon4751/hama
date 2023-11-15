@@ -23,7 +23,7 @@ public interface CommunitySVC {
   Optional<Community> viewById(Long comu_post_id);
 
   //게시글 수정
-  int updateById(Long comu_post_id, Community community);
+  Long updateById(Long comu_post_id, Community community);
 
   //게시글 삭제
   Community deleteById(Long comu_post_id);

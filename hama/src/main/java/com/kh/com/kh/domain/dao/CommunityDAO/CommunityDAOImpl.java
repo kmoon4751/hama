@@ -125,6 +125,7 @@ public class CommunityDAOImpl implements CommunityDAO {
     SqlParameterSource param = new MapSqlParameterSource()
         .addValue("title", community.getTitle())
         .addValue("content", community.getContent())
+        .addValue("comu_gubun", community.getComu_gubun())
         .addValue("comu_post_id",comu_post_id);
 
     int updatedRows = template.update(sql.toString(), param);
