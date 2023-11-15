@@ -1,7 +1,23 @@
  * {
     margin: 0;
     padding: 0;
-   outline: 1px solid red;
+   /* outline: 1px solid red; */
+ }
+
+
+ .detail_submit{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 50px;
+ }
+
+ .detail_submit_button{
+   display: flex;
+   justify-content: center;
+ }
+ .detail_submit_buttons{
+    width: 200px;
  }
 
  .container_commu{
@@ -57,8 +73,11 @@
     text-decoration: none;
     color: #000;
  }
+ .commu_content_p{
+ margin-top : 20px
+ }
 .commu_content form{
-    padding-top:50px;
+    padding-top:20px;
 }
  /* 게시글 요소 */
  .content_photo{

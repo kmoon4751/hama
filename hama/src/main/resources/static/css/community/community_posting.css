@@ -4,6 +4,21 @@
    /* outline: 1px solid red; */
  }
 
+.posting_submit{
+   display: flex;
+   justify-content: center;
+   margin-top: 20px;
+   margin-bottom: 50px;
+ }
+
+ #posting_submit_button{
+   color : white
+   background-color: #039;
+   width: 200px;
+ }
+
+
+
  .container_commu{
    display: grid;
    grid-template-areas:
@@ -16,14 +31,15 @@
    display: flex;
    justify-content: center;
    min-width: 1024px; /* 최소 너비를 설정하여 화면이 이 값 미만으로 줄어들지 않도록 함 */
-   padding-right: 220px;/* .commu_side의 너비만큼 오른쪽 패딩 추가 */
-   background-color:gold;
+   /* padding-right: 220px;.commu_side의 너비만큼 오른쪽 패딩 추가 */
+   /* background-color:gold; */
 }
 
  /* 페이지 제목 : 커뮤니티 */
  .commu_title {
     width: 1000PX;
     height:100px;
+    margin-top : 50px
  }
 
  /* 페이지 전체 */

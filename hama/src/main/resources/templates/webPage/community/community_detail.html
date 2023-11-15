@@ -49,8 +49,8 @@
                 <!-- 커뮤니티 페이지 제목 -->
                 <div class="commu_title">
                     <div id="title1">
-                        <h2>궁금해요</h2>
-                        <div id="title2"><br>생활 속 궁금했던 모든 것을 물어보고 답해보세요
+                        <h2>커뮤니티</h2>
+                        <div id="title2"><br>주제에 맞지 않는 글이나 커뮤니티 이용정책에 위배되는 글은 삭제될 수 있습니다.
                         </div>
                     </div>
                 </div>
@@ -60,22 +60,23 @@
                         <div>
                             <h1 th:text="${community.title}"></h1>
                         </div>
-                        <div>
-                            <p th:text="${community.content}"></p>
+                        <div class="commu_content_p">
+                            <p th:utext="${community.content}"></p>
                         </div>
 
                     </form>
                     <form action="" method="post" >
-                        <div>
-                            <input type="hidden" th:value="${comu_post_id}">
-                            <button type="submit">삭제</button>
+                        <div class="detail_submit">
+                            <div class="detail_submit_button">
+                                <a th:href="@{/community/modify/{comu_post_id}(comu_post_id=${community.comu_post_id})}" style="width: 200px;">수정</a>
+                            </div>
+                            <div class="detail_submit_button">
+                                <input type="hidden" th:value="${comu_post_id}">
+                                <button class="detail_submit_buttons" type="submit">삭제</button>
+                            </div>
                         </div>
                     </form>
-                    <form>
-                        <div>
-                            <a th:href="@{/community/modify/{comu_post_id}(comu_post_id=${community.comu_post_id})}">수정</a>
-                        </div>
-                    </form>
+
                 </div>
             </div>
         </div>

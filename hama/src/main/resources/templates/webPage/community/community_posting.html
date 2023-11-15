@@ -55,7 +55,7 @@
         <div class="commu_title">
           <div id="title1">
             <h2>글 작성</h2>
-            <div id="title2"><br>글을 작성해보세용
+            <div id="title2">주제에 맞지 않는 글이나 커뮤니티 이용정책에 위배되는 글은 삭제될 수 있습니다.<br>
             </div>
           </div>
         </div>
@@ -68,9 +68,11 @@
               <option value="얼마예요">얼마예요</option>
               <option value="모여봐요">모여봐요</option>
             </select>
-            <input name="title" type="text" th:name="title">
+            <input name="title" type="text" th:name="title" style="width: 400px;" placeholder="제목을 입력해주세요">
             <textarea class="summernote" name="content" th:name="content"></textarea>
-            <button type="submit">작성</button>
+            <div class="posting_submit">
+              <button id="posting_submit_button" type="submit">작성</button>
+            </div>
           </form>
         </div>
       </div>
